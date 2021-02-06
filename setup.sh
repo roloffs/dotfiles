@@ -6,8 +6,11 @@
 # install basic tools
 sudo apt install -y vim htop meld colordiff
 
+# install terminal tools
+# i3, alacritty, tmux, ranger, zsh, fzf
+
 # install dev tools
-#sudo snap install code --classic
+# code, pycharm, eclipse
 
 # list of target dotfiles (paths to their target directories)
 dotfiles=(~/.bashrc ~/.profile ~/.inputrc ~/.vimrc ~/.gitconfig ~/.tmux.conf ~/.config/Code/User/settings.json ~/.config/user-dirs.dirs ~/.config/i3/config ~/.config/ranger/rc.conf)
