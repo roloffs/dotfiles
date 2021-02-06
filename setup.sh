@@ -3,8 +3,14 @@
 # TODO: script should only be executed from this directory
 # ${BASH_SOURCE[0]}
 
+# install basic tools
+sudo apt install -y vim htop meld colordiff
+
+# install dev tools
+#sudo snap install code --classic
+
 # list of target dotfiles (paths to their target directories)
-dotfiles=(~/.bashrc ~/.profile ~/.inputrc ~/.vimrc ~/.gitconfig ~/.tmux.conf ~/.config/Code/User/settings.json ~/.config/user-dirs.dirs)
+dotfiles=(~/.bashrc ~/.profile ~/.inputrc ~/.vimrc ~/.gitconfig ~/.tmux.conf ~/.config/Code/User/settings.json ~/.config/user-dirs.dirs ~/.config/i3/config ~/.config/ranger/rc.conf)
 for dotfile in ${dotfiles[@]}; do
     # determine local dotfile (path to this directory)
     _dotfile=$(realpath $(basename $dotfile))
@@ -25,6 +31,3 @@ for dotfile in ${dotfiles[@]}; do
         ln -sf $_dotfile $dotfile
     fi
 done
-
-# install apt packages
-#cat packages.txt | xargs sudo apt install
