@@ -7,6 +7,7 @@ set showtabline=2 " always shows tab line
 set laststatus=2 " always displays an extra line above status line
 "set noshowmode " disables showing the current mode in status line
 "set colorcolumn=80 " displays a line at the specified column
+"set cursorline " highlights current line (makes cursor movement very laggy)
 
 set background=dark " adapts color scheme for dark background
 set showmatch " shows matching brackets
@@ -15,10 +16,10 @@ set listchars=tab:»\ ,trail:-,nbsp:+,extends:›,precedes:‹
 "set listchars=tab:▸\ ,trail:·,nbsp:·,extends:→,precedes:←
 "set listchars=tab:>\ ,trail:-,nbsp:+,extends:>,precedes:<
 
-set hlsearch " highlights search results
-set incsearch " jumps to search results already during writing
-"set ignorecase " case insensitive search
-"set smartcase " be case sensitive if word contains an upper case letter
+set hlsearch " highlights search results (:noh unhighlights search results)
+set incsearch " jumps to search results already during writing (enclose search term into \< and \> for whole word search)
+"set ignorecase " ignore case type for searching (append \C to the search pattern to enforce case sensitive search, \c for case insensitive search)
+set smartcase " be case sensitive if word contains an upper case letter
 
 set expandtab " when <tab> key is hit, spaces are inserted instead of <tab> symbols (:retab replaces existing <tab> symbols with spaces, ctrl+v <tab> interts a <tab> symbol in insert mode)
 set softtabstop=4 " number of columns, hitting the <tab> key counts for (independent of spaces or <tab> symbols)
@@ -49,7 +50,6 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
 endif
 
-
 " after this amount of characters a line break is inserted (only for text files)
 "if has("autocmd")
 "    autocmd FileType text setlocal textwidth=80
@@ -60,7 +60,7 @@ endif
 "    filetype plugin indent on
 "endif
 
-" enables the mouse in the terminal
+" enable cursor placement by mouse (is required, e.g., not to scroll in tiling window managers, hold shift key to activate normal mouse behavior)
 "if has('mouse')
 "    set mouse=a
 "endif

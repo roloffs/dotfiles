@@ -1,4 +1,11 @@
-# determine control sequence with 'cat > /dev/null' and replace ^[ with \e
+# determine control sequence with (replace ^[ with \e)
+#   cat > /dev/null
+#   ctrl+v then key combi
+#   showkey -a
+#
+# determine mouse control sequences
+#   echo -e '\e[?1000h' mouse event reporting on
+#   echo -e '\e[?1000l' mouse event reporting off
 
 # alternate mappings for 'Page up' and 'Page down' to search the history
 "\e[5~": history-search-backward
@@ -7,4 +14,3 @@
 # mappings for Ctrl+Left and Ctrl+Right for word moving
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
-

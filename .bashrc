@@ -75,7 +75,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto --group-directories-first --time-style=long-iso'
+    alias ls='ls -v --color=auto --group-directories-first --time-style=long-iso'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -92,9 +92,9 @@ if [ -x /usr/bin/colordiff ]; then
     alias diff='colordiff -u'
 fi
 
-# decimal to binary conversion command
-# dec2bin [decimal number] [number of digits]
+# some python scripts
 if [ -x /usr/bin/python3 ]; then
+    # decimal to binary number conversion (dec2bin [decimal number] [number of digits])
     dec2bin() {
         python3 -c "print('{0:0${2:-8}b}'.format(${1:-0}))"
     }

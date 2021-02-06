@@ -26,3 +26,5 @@ for dotfile in ${dotfiles[@]}; do
     fi
 done
 
+# install apt packages
+#cat packages.txt | xargs sudo apt install

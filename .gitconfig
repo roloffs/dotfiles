@@ -51,4 +51,3 @@
     last = log -1 HEAD
     list = log --pretty=oneline --abbrev-commit
     glog = log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --graph
-
