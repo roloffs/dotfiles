@@ -10,10 +10,22 @@ sudo apt install -y vim htop meld colordiff
 # i3, alacritty, tmux, ranger, zsh, fzf
 
 # install dev tools
-# code, pycharm, eclipse
+# code, pycharm, clion, eclipse
 
 # list of target dotfiles (paths to their target directories)
-dotfiles=(~/.bashrc ~/.profile ~/.inputrc ~/.vimrc ~/.gitconfig ~/.tmux.conf ~/.config/Code/User/settings.json ~/.config/user-dirs.dirs ~/.config/i3/config ~/.config/ranger/rc.conf)
+dotfiles=( \
+    ~/.vimrc \
+    ~/.bashrc \
+    ~/.profile \
+    ~/.inputrc \
+    ~/.gitconfig \
+    ~/.tmux.conf \
+    ~/.config/i3/config \
+    ~/.config/ranger/rc.conf \
+    ~/.config/user-dirs.dirs \
+    ~/.config/Code/User/settings.json \
+)
+
 for dotfile in ${dotfiles[@]}; do
     # determine local dotfile (path to this directory)
     _dotfile=$(realpath $(basename $dotfile))
