@@ -1,17 +1,45 @@
 {
     "update.showReleaseNotes": false,
-    "workbench.sideBar.location": "left",
+    "extensions.ignoreRecommendations": true,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "editor.renderWhitespace": "all",
+    // Editor
     "editor.wordWrap": "on",
-    "[Log]": {
-        "editor.wordWrap": "on"
-    },
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 1000,
+    "editor.renderWhitespace": "all",
+    "editor.quickSuggestions": false,
+    "editor.selectionHighlight": false,
+    "editor.occurrencesHighlight": false,
+    // "editor.formatOnSave": true,
+    // "files.autoSave": "afterDelay",
+    // "files.autoSaveDelay": 1000,
     "files.watcherExclude": {
         "**/*": true
     },
-    "extensions.ignoreRecommendations": true
+    "[Log]": {
+        "editor.wordWrap": "on"
+    },
+    // C++
+    "[cpp]": {
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true
+    },
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4}",
+    "C_Cpp.files.exclude": {
+        "**/.vscode": true,
+        "**/.settings": true
+    },
+    "clang-tidy.checks": [
+        "modernize-*"
+    ],
+    "clang-tidy.compilerArgs": [
+        "-std=c++17"
+    ],
+    "clang-tidy.compilerArgsBefore": [
+        "-x=c++"
+    ],
+    // Python
+    "python.pythonPath": "/usr/bin/python3",
+    "python.defaultInterpreterPath": "/usr/bin/python3"
 }
