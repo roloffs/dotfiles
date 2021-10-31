@@ -75,7 +75,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -v --color=auto --group-directories-first --time-style=long-iso'
+    alias ls='ls -v --color=auto --group-directories-first'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -94,11 +94,12 @@ fi
 
 # some python scripts
 if [ -x /usr/bin/python3 ]; then
-    # decimal to binary number conversion (dec2bin [decimal number] [number of digits])
+    # decimal to binary number conversion (dec2bin 4711 32)
     dec2bin() {
         python3 -c "print('{0:0${2:-8}b}'.format(${1:-0}))"
     }
 
+    # decimal to binary ip address conversion (ip2bin 192.168.0.1)
     ip2bin() {
         python3 -c "print('.'.join(map(str,['{0:08b}'.format(int(x if x != '' else '0')) for x in '${1:-0.0.0.0}'.split('.')])))"
     }
@@ -114,15 +115,13 @@ alias +='pushd .'
 alias -- -='popd'
 alias ..='cd ..'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
+# Add an "alert" alias for long running commands (sleep 10; alert)
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -138,3 +137,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# load starship prompt
+#if [ -x /snap/bin/starship ]; then
+#    cd ~ &> /dev/null
+#    eval "$(starship init bash)"
+#    cd - &> /dev/null
+#fi
+
+# load z
+#if [ -f ~/z.sh ]; then
+#    source ~/z.sh
+#fi
+
+#fortune | cowsay -f bud-frogs | lolcat

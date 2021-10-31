@@ -12,7 +12,7 @@ umask 022
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
@@ -46,6 +46,9 @@ export LESS_TERMCAP_so=$'\e[01;34m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
+# fzf options
+export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline"
+
 # Proxy server
 #export http_proxy="http://<proxy.com:port>"
 #export https_proxy="http://<proxy.com:port>"
@@ -53,4 +56,3 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 #export HTTP_PROXY=$http_proxy
 #export HTTPS_PROXY=$https_proxy
 #export FTP_PROXY=$ftp_proxy
-
