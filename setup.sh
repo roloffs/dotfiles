@@ -1,10 +1,13 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
 
-# TODO: script should only be executed from this directory
-# ${BASH_SOURCE[0]}
+# exit on error
+set -e
+
+# determine script directory
+script_dir="$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
 # install basic tools
-sudo apt install -y vim htop meld colordiff
+# sudo apt install -y vim htop meld colordiff
 
 # install terminal tools
 # i3, alacritty, tmux, ranger, zsh, fzf
@@ -12,7 +15,7 @@ sudo apt install -y vim htop meld colordiff
 # install dev tools
 # code, pycharm, clion, eclipse
 
-# list of target dotfiles (paths to their target directories)
+# list of target dotfiles (paths to their target locations)
 dotfiles=( \
     ~/.vimrc \
     ~/.bashrc \
@@ -20,29 +23,35 @@ dotfiles=( \
     ~/.inputrc \
     ~/.gitconfig \
     ~/.tmux.conf \
-    ~/.config/i3/config \
-    ~/.config/ranger/rc.conf \
     ~/.config/user-dirs.dirs \
     ~/.config/Code/User/settings.json \
 )
 
-for dotfile in ${dotfiles[@]}; do
-    # determine local dotfile (path to this directory)
-    _dotfile=$(realpath $(basename $dotfile))
+for dst_dotfile in "${dotfiles[@]}"; do
+    # resolve tilde symbol with home path in string
+    dst_dotfile="${dst_dotfile/#\~/$HOME}"
 
-    # check if target dotfile exists
-    if [ -f $dotfile ]; then
-        if [ $(realpath $dotfile) = $_dotfile ]; then
-            echo "$dotfile already linked"
+    # find dotfile in current location
+    src_dotfile="$(find "$script_dir" -name "$(basename "$dst_dotfile")" | head -n1)"
+    if [[ "$src_dotfile" = "" ]]; then
+        echo "'$(basename "$dst_dotfile")' not found"
+        continue
+    fi
+    src_dotfile="$(readlink -f "$src_dotfile")"
+
+    # check if dotfile exists in target location
+    if [[ -f "$dst_dotfile" ]]; then
+        if [[ "$(readlink -f "$dst_dotfile")" = "$src_dotfile" ]]; then
+            echo "'$dst_dotfile' already linked"
         else
-            read -p "$dotfile exists, override? (y/n): " res
-            if [ -n $res -a \( "$res" = "y" -o "$res" = "Y" \) ]; then
-                ln -sf $_dotfile $dotfile
+            read -p "'$dst_dotfile' exists, override? (y/n): " res
+            if [[ "$res" != "" && ( "$res" = "y" || "$res" = "Y" ) ]]; then
+                ln -sf "$src_dotfile" "$dst_dotfile"
             fi
         fi
     else
-        echo "$dotfile does not exist, link it"
-        mkdir -p $(dirname $dotfile)
-        ln -sf $_dotfile $dotfile
+        echo "'$dst_dotfile' does not exist, link it"
+        mkdir -p "$(dirname "$dst_dotfile")"
+        ln -sf "$src_dotfile" "$dst_dotfile"
     fi
 done
