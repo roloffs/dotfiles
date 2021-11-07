@@ -46,6 +46,7 @@ for dst_dotfile in "${dotfiles[@]}"; do
         else
             read -p "'$dst_dotfile' exists, override? (y/n): " res
             if [[ "$res" != "" && ( "$res" = "y" || "$res" = "Y" ) ]]; then
+                cp "$dst_dotfile" "${src_dotfile}_orig"
                 ln -sf "$src_dotfile" "$dst_dotfile"
             fi
         fi

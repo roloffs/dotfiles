@@ -6,9 +6,9 @@
     // Editor
     "editor.wordWrap": "on",
     "editor.renderWhitespace": "all",
-    "editor.quickSuggestions": false,
-    "editor.selectionHighlight": false,
-    "editor.occurrencesHighlight": false,
+    // "editor.quickSuggestions": false,
+    // "editor.selectionHighlight": false,
+    // "editor.occurrencesHighlight": false,
     // "editor.formatOnSave": true,
     // "files.autoSave": "afterDelay",
     // "files.autoSaveDelay": 1000,
