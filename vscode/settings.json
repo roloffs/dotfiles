@@ -1,8 +1,9 @@
 {
-    "update.showReleaseNotes": false,
-    "extensions.ignoreRecommendations": true,
+    "workbench.sideBar.location": "left",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
+    "update.showReleaseNotes": false,
+    "extensions.ignoreRecommendations": true,
     // editor
     "editor.wordWrap": "on",
     "editor.renderWhitespace": "all",
@@ -44,5 +45,6 @@
     "cmake.configureOnOpen": false,
     // python
     "python.pythonPath": "/usr/bin/python3",
-    "python.defaultInterpreterPath": "/usr/bin/python3"
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "python.showStartPage": false
 }
