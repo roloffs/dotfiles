@@ -3,7 +3,7 @@
     "extensions.ignoreRecommendations": true,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    // Editor
+    // editor
     "editor.wordWrap": "on",
     "editor.renderWhitespace": "all",
     // "editor.quickSuggestions": false,
@@ -12,13 +12,14 @@
     // "editor.formatOnSave": true,
     // "files.autoSave": "afterDelay",
     // "files.autoSaveDelay": 1000,
+    "files.insertFinalNewline": true,
     "files.watcherExclude": {
         "**/*": true
     },
     "[Log]": {
         "editor.wordWrap": "on"
     },
-    // C++
+    // c++
     "[cpp]": {
         "editor.wordBasedSuggestions": false,
         "editor.suggest.insertMode": "replace",
@@ -39,7 +40,9 @@
     "clang-tidy.compilerArgsBefore": [
         "-x=c++"
     ],
-    // Python
+    // cmake
+    "cmake.configureOnOpen": false,
+    // python
     "python.pythonPath": "/usr/bin/python3",
     "python.defaultInterpreterPath": "/usr/bin/python3"
 }
