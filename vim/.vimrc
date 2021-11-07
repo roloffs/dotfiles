@@ -18,8 +18,8 @@ set listchars=tab:»\ ,trail:-,nbsp:+,extends:›,precedes:‹
 
 set hlsearch " highlights search results (:noh unhighlights search results)
 set incsearch " jumps to search results already during writing (enclose search term into \< and \> for whole word search)
-"set ignorecase " ignore case type for searching (append \C to the search pattern to enforce case sensitive search, \c for case insensitive search)
-set smartcase " be case sensitive if word contains an upper case letter
+set ignorecase " ignore case type for searching (append \C to the search pattern to enforce case sensitive search, \c for case insensitive search)
+set smartcase " be case sensitive if word contains an upper case letter (works only, if ignorecase is set)
 
 set expandtab " when <tab> key is hit, spaces are inserted instead of <tab> symbols (:retab replaces existing <tab> symbols with spaces, ctrl+v <tab> interts a <tab> symbol in insert mode)
 set softtabstop=4 " number of columns, hitting the <tab> key counts for (independent of spaces or <tab> symbols)
@@ -43,7 +43,7 @@ if has("syntax")
     syntax on
 endif
 
-" jumps to the last position when reopening a file
+" jumps to the last position when reopening a file (if it does not work, check permissions of .viminfo)
 "   g'\""   cursor at the bottom of the screen
 "   g'\"zz" cursor in the middle of the screen
 if has("autocmd")
