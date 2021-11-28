@@ -46,8 +46,11 @@ export LESS_TERMCAP_so=$'\e[01;34m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-# fzf options
-export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline"
+# fzf default options
+export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --multi"
+
+# fzf default command
+export FZF_DEFAULT_COMMAND="find -path ./.git -prune -o -type f"
 
 # Proxy server
 #export http_proxy="http://<proxy.com:port>"

@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
-
-# exit on error
 set -e
 
 # determine script directory
 script_dir="$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
 # install basic tools
-# sudo apt install -y vim htop meld colordiff
+# sudo apt-get install -y vim htop meld colordiff fzf
 
 # install terminal tools
-# i3, alacritty, tmux, ranger, zsh, fzf
+# i3, alacritty, tmux, ranger, zsh
 
 # install dev tools
 # code, pycharm, clion, eclipse

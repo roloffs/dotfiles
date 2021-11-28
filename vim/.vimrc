@@ -73,3 +73,6 @@ if &term =~ '^screen'
     execute "set <xRight>=\e[1;*C"
     execute "set <xLeft>=\e[1;*D"
 endif
+
+" fzf key-bindings
+source /usr/share/doc/fzf/examples/fzf.vim
