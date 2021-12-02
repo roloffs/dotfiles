@@ -21,6 +21,7 @@ dotfiles=( \
     ~/.inputrc \
     ~/.gitconfig \
     ~/.tmux.conf \
+    ~/.z.sh \
     ~/.config/user-dirs.dirs \
     ~/.config/Code/User/settings.json \
 )

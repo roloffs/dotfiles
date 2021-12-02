@@ -105,6 +105,30 @@ if [ -x /usr/bin/python3 ]; then
     }
 fi
 
+# fzf key bindings (ctrl+t search files, ctrl+r search history)
+if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
+    source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
+
+# fzf auto completion (triggered by **)
+if [ -f /usr/share/doc/fzf/examples/completion.bash ]; then
+    source /usr/share/doc/fzf/examples/completion.bash
+fi
+
+# activate starship prompt
+#if [ -x /snap/bin/starship ]; then
+#    cd ~ &> /dev/null
+#    eval "$(starship init bash)"
+#    cd - &> /dev/null
+#fi
+
+# activate z navigation
+if [ -f ~/.z.sh ]; then
+    source ~/.z.sh
+fi
+
+#fortune | cowsay -f bud-frogs | lolcat
+
 # some more ls aliases
 alias ll='ls -lF'
 alias la='ls -lAF'
@@ -136,27 +160,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# fzf key-bindings (ctrl+t search files, ctrl+r search history)
-if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
-    source /usr/share/doc/fzf/examples/key-bindings.bash
-fi
-
-# fzf tab completion (triggered by **)
-if [ -f /usr/share/doc/fzf/examples/completion.bash ]; then
-    source /usr/share/doc/fzf/examples/completion.bash
-fi
-
-# load starship prompt
-#if [ -x /snap/bin/starship ]; then
-#    cd ~ &> /dev/null
-#    eval "$(starship init bash)"
-#    cd - &> /dev/null
-#fi
-
-# load z
-#if [ -f ~/z.sh ]; then
-#    source ~/z.sh
-#fi
-
-#fortune | cowsay -f bud-frogs | lolcat
