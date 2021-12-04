@@ -75,4 +75,6 @@ if &term =~ '^screen'
 endif
 
 " fzf key-bindings
-source /usr/share/doc/fzf/examples/fzf.vim
+if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
+    source /usr/share/doc/fzf/examples/fzf.vim
+endif
