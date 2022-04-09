@@ -2,6 +2,7 @@
     "workbench.sideBar.location": "left",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
+    "explorer.autoReveal": false,
     "update.showReleaseNotes": false,
     "extensions.ignoreRecommendations": true,
     // editor
