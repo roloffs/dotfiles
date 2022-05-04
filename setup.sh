@@ -5,13 +5,10 @@ set -e
 script_dir="$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
 # install basic tools
-# sudo apt-get install -y vim htop meld colordiff fzf
+# sudo apt-get install -y vim tree htop meld fzf colordiff
 
-# install terminal tools
-# i3, alacritty, tmux, ranger, zsh
-
-# install dev tools
-# code, pycharm, clion, eclipse
+# sudo apt install arandr pavucontrol libfontconfig1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+# cargo install alacritty du-dust
 
 # list of target dotfiles (paths to their target locations)
 dotfiles=( \
