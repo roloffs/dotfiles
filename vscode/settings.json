@@ -21,7 +21,32 @@
     "[Log]": {
         "editor.wordWrap": "on"
     },
-    // c++
+
+    // Python
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.pylintPath": "pylint",
+    "python.linting.pylintEnabled": true,
+    "python.showStartPage": false,
+    // "python.formatting.provider": "yapf",
+    // "python.formatting.yapfArgs": [
+    //     "--style={based_on_style: google, column_limit: 80, indent_width: 2}"
+    // ],
+    "python.formatting.blackArgs": [
+        "--line-length=80",
+        "--preview"
+    ],
+    "[python]": {
+        "editor.formatOnSave": true,
+        // "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+
+    // C++
     "[cpp]": {
         "editor.wordBasedSuggestions": false,
         "editor.suggest.insertMode": "replace",
@@ -42,10 +67,7 @@
     "clang-tidy.compilerArgsBefore": [
         "-x=c++"
     ],
-    // cmake
-    "cmake.configureOnOpen": false,
-    // python
-    "python.pythonPath": "/usr/bin/python3",
-    "python.defaultInterpreterPath": "/usr/bin/python3",
-    "python.showStartPage": false
+
+    // Cmake
+    "cmake.configureOnOpen": false
 }
