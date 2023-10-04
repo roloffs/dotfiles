@@ -62,8 +62,8 @@
     "rewrap.wrappingColumn": 72,
 
     // Git
+    "gitlens.codeLens.enabled": false,
     "gitlens.currentLine.enabled": false,
-    // "gitlens.codeLens.enabled": false,
     // "gitlens.hovers.currentLine.over": "line",
 
     // Remote
@@ -104,7 +104,6 @@
         "--line-length=80",
         "--preview"
     ],
-    "python.showStartPage": false,
     "[python]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": false,
