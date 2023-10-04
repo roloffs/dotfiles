@@ -5,21 +5,15 @@ set -e
 script_dir="$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
 # install basic tools
-# sudo apt-get install -y vim tree htop meld fzf colordiff
+# sudo apt-get install -y vim tree htop colordiff
 
-# sudo apt install arandr pavucontrol libfontconfig1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
-# cargo install alacritty du-dust
-
-# list of target dotfiles (paths to their target locations)
+# list of dotfiles to be installed
 dotfiles=( \
-    ~/.vimrc \
     ~/.bashrc \
     ~/.profile \
     ~/.inputrc \
+    ~/.vimrc \
     ~/.gitconfig \
-    ~/.tmux.conf \
-    ~/.z.sh \
-    ~/.config/user-dirs.dirs \
     ~/.config/Code/User/settings.json \
 )
 
@@ -28,7 +22,7 @@ for dst_dotfile in "${dotfiles[@]}"; do
     dst_dotfile="${dst_dotfile/#\~/$HOME}"
 
     # find dotfile in current location
-    src_dotfile="$(find "$script_dir" -name "$(basename "$dst_dotfile")" | head -n1)"
+    src_dotfile="$(find "$script_dir/profile" -maxdepth 1 -name "$(basename "$dst_dotfile")")"
     if [[ "$src_dotfile" = "" ]]; then
         echo "'$(basename "$dst_dotfile")' not found"
         continue

@@ -1,0 +1,73 @@
+{
+    // General
+    "window.zoomLevel": 1,
+    "update.showReleaseNotes": false,
+    "security.workspace.trust.banner": "never",
+    "security.workspace.trust.untrustedFiles": "open",
+    // "extensions.ignoreRecommendations": true,
+
+    // Explorer
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.sortOrderLexicographicOptions": "upper",
+    // "explorer.autoReveal": false,
+
+    // Files
+    "files.insertFinalNewline": true,
+    // "files.autoSave": "afterDelay",
+    // "files.autoSaveDelay": 1000,
+    "files.associations": {
+        "TARGETS": "json",
+        "RULES": "json",
+        "EXPRESSIONS": "json"
+    },
+
+    // Editor
+    "editor.wordWrap": "on",
+    "editor.renderWhitespace": "all",
+    "editor.minimap.showSlider": "always",
+    "editor.smoothScrolling": true,
+    "editor.detectIndentation": false,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    // "editor.quickSuggestions": false,
+    // "editor.quickSuggestions": {
+    //     "comments": "off",
+    //     "strings": "off",
+    //     "other": "off"
+    // },
+    // "editor.selectionHighlight": false,
+    // "editor.occurrencesHighlight": false,
+    // "editor.parameterHints.enabled": false,
+    // "editor.suggestOnTriggerCharacters": false,
+    // "editor.suggest.snippetsPreventQuickSuggestions": false,
+
+    // Diff editor
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    // Log
+    "[log]": {
+        "editor.wordWrap": "on"
+    },
+
+    // Debug
+    "debug.onTaskErrors": "abort",
+
+    // Problems
+    "problems.showCurrentInStatus": true,
+
+    // Rewrap
+    // [stkb.rewrap]
+    "rewrap.wrappingColumn": 72,
+
+    // Remote
+    // [ms-vscode-remote.remote-ssh]
+    "remote.SSH.remotePlatform": {
+        "10.204.62.226": "linux"
+    },
+    "remote.SSH.path": "C:\\WINDOWS\\System32\\OpenSSH\\ssh.exe",
+    "remote.SSH.useLocalServer": true,
+    "remote.SSH.lockfilesInTmp": true
+}

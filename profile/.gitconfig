@@ -4,7 +4,7 @@
     email = sascha.roloff@gmail.com
 
 [credential "https://github.com"]
-    username = sisarolo
+    username = roloffs
     helper = cache --timeout=28800 # 28800 = 8h
 
 #[http "https://<server.com>"]
@@ -22,11 +22,11 @@
 [core]
     editor = vim
     pager = less # sets pager to display output of log, show, diff, and status (--no-pager, -P)
-#    filemode = false # executable bit of files is ignored (bad practice)
+    # filemode = false # executable bit of files is ignored (bad practice)
 
 [pager]
     diff = cat
-#    diff = diff-highlight
+    # diff = diff-highlight
     status = # (--paginate, -p)
 
 [diff]
@@ -37,7 +37,7 @@
 
 [merge]
     tool = meld # git mergetool
-#    conflictstyle = diff3 # for merge conflicts, the common ancestor of HEAD and the merged branch is displayed besides the changes from HEAD and the merged branch
+    # conflictstyle = diff3 # for merge conflicts, the common ancestor of HEAD and the merged branch is displayed besides the changes from HEAD and the merged branch
 
 [mergetool]
     prompt = false
