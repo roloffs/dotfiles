@@ -145,9 +145,3 @@ fi
 if [ -f ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
 fi
-
-# load just tab completion
-if [ -f ~/.local/etc/bash_completion.d/just ]; then
-    . ~/.local/etc/bash_completion.d/just
-    complete -F _just_completion remote
-fi

@@ -1,7 +1,3 @@
-# sudo apt install zsh
-# chsh -s $(which zsh)
-# man zshoptions
-
 # Keybindings
 bindkey -e # enable standard key bindings (e.g., ctrl+r for backward history search)
 bindkey '^[[5~' history-beginning-search-backward  # start typing + [Up-Arrow] - fuzzy find history forward  
