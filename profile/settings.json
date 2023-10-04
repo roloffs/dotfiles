@@ -58,12 +58,10 @@
     // Problems
     "problems.showCurrentInStatus": true,
 
-    // Rewrap
-    // [stkb.rewrap]
+    // Rewrap [stkb.rewrap]
     "rewrap.wrappingColumn": 72,
 
-    // Remote
-    // [ms-vscode-remote.remote-ssh]
+    // Remote [ms-vscode-remote.remote-ssh]
     "remote.SSH.remotePlatform": {
         "10.204.62.226": "linux"
     },

@@ -1,53 +1,10 @@
-# github
 [user]
     name = Sascha Roloff
     email = sascha.roloff@gmail.com
-
-[credential "https://github.com"]
-    username = roloffs
-    helper = cache --timeout=28800 # 28800 = 8h
-
-#[http "https://<server.com>"]
-#    sslCert = ~/pkifiles/cert-alm.crt
-#    sslKey = ~/pkifiles/cert-alm.key
-#    sslVerify = false
-#    proxy = http://<proxy.com:port>
-
-[log]
-    date = local # timestamps will be displayed in local time of the creators time zone
-
-[push]
-    default = simple # pushing the current branch to a remote repository is refused, if no upstream branch exists for the local branch
-
-[core]
-    editor = vim
-    pager = less # sets pager to display output of log, show, diff, and status (--no-pager, -P)
-    # filemode = false # executable bit of files is ignored (bad practice)
-
-[pager]
-    diff = cat
-    # diff = diff-highlight
-    status = # (--paginate, -p)
-
-[diff]
-    tool = meld # git difftool
-
-[difftool]
-    prompt = false
-
-[merge]
-    tool = meld # git mergetool
-    # conflictstyle = diff3 # for merge conflicts, the common ancestor of HEAD and the merged branch is displayed besides the changes from HEAD and the merged branch
-
-[mergetool]
-    prompt = false
-
-[color]
-    ui = auto # enables color on terminal output, but disables for redirections and pipes
-
-[alias]
-    unstage = reset HEAD --
-    unmodify = checkout --
-    last = log -1 HEAD
-    list = log --pretty=oneline --abbrev-commit
-    glog = log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --graph
+[pull]
+    ff = only
+# [http "https://<server.com>"]
+#     proxy = http://<proxy.com:port>
+#     sslVerify = false
+#     sslCert = ~/pkifiles/cert-alm.crt
+#     sslKey = ~/pkifiles/cert-alm.key

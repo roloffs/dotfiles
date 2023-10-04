@@ -4,8 +4,11 @@ set -e
 # determine script directory
 script_dir="$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
-# install basic tools
+# install some essential tools
 # sudo apt-get install -y vim tree htop colordiff
+
+# download git-prompt.sh
+# wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 
 # list of dotfiles to be installed
 dotfiles=( \

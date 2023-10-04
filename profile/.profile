@@ -6,7 +6,7 @@
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
-umask 022
+# umask 022
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -45,14 +45,6 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;34m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
-
-# fzf configuration
-export FZF_DEFAULT_OPTS='--height=40% --layout=reverse --info=inline --multi'
-export FZF_DEFAULT_COMMAND='find -path ./.git -prune -o -type f'
-
-# z configuration
-#export _Z_CMD=j
-#export _Z_EXCLUDE_DIRS='./.git'
 
 # Proxy server
 #export http_proxy="http://<proxy.com:port>"

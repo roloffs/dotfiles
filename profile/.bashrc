@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0;31m\]$(__git_ps1)\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -85,7 +85,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # enable colored diff version
 if [ -x /usr/bin/colordiff ]; then
@@ -116,8 +116,8 @@ alias -- -='popd'
 alias ..='cd ..'
 
 # pgrep alias
-alias pgrep='pgrep -fl'
-alias pkill='pkill -f'
+# alias pgrep='pgrep -fl'
+# alias pkill='pkill -f'
 
 # Add an "alert" alias for long running commands (sleep 10; alert)
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -141,26 +141,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# fzf key-bindings (ctrl+t search files, ctrl+r search history)
-if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
-    . /usr/share/doc/fzf/examples/key-bindings.bash
+# load git prompt
+if [ -f ~/.git-prompt.sh ]; then
+    . ~/.git-prompt.sh
 fi
 
-# fzf auto-completion (triggered by **)
-if [ -f /usr/share/doc/fzf/examples/completion.bash ]; then
-    . /usr/share/doc/fzf/examples/completion.bash
+# load just tab completion
+if [ -f ~/.local/etc/bash_completion.d/just ]; then
+    . ~/.local/etc/bash_completion.d/just
+    complete -F _just_completion remote
 fi
-
-# activate starship prompt
-#if [ -x /snap/bin/starship ]; then
-#    cd ~ &> /dev/null
-#    eval "$(starship init bash)"
-#    cd - &> /dev/null
-#fi
-
-# activate z navigation
-if [ -f ~/.z.sh ]; then
-    . ~/.z.sh
-fi
-
-#fortune | cowsay -f bud-frogs | lolcat

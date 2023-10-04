@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "just",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/tmp/just_debug_build/bin/just",
+            "args": [
+                "build"
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}/OSS",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Substitute source path",
+                    "text": "set substitute-path work .",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Substitute include path",
+                    "text": "set substitute-path include .",
+                    "ignoreFailures": false
+                }
+            ],
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ]
+}

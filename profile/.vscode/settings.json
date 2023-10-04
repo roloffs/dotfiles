@@ -1,13 +1,10 @@
 {
-    // Git
-    // [eamodio.gitlens,
-    // mhutchie.git-graph]
+    // Git [eamodio.gitlens, mhutchie.git-graph]
     "gitlens.codeLens.enabled": false,
     "gitlens.currentLine.enabled": false,
     // "gitlens.hovers.currentLine.over": "line",
 
-    // Json
-    // [jkillian.custom-local-formatters]
+    // Json [jkillian.custom-local-formatters]
     "customLocalFormatters.formatters": [
         {
             "command": "${env:HOME}/.local/bin/hdump",
@@ -22,12 +19,8 @@
         "editor.defaultFormatter": "jkillian.custom-local-formatters"
     },
 
-    // Python
-    // [ms-python.python,
-    // ms-python.vscode-pylance,
-    // ms-python.pylint,
-    // ms-python.black-formatter,
-    // ms-python.isort]
+    // Python [ms-python.python, ms-python.vscode-pylance,
+    // ms-python.pylint, ms-python.black-formatter, ms-python.isort]
     "python.defaultInterpreterPath": "/usr/bin/python3",
     "python.languageServer": "Pylance",
     "python.analysis.typeCheckingMode": "basic",
