@@ -34,6 +34,7 @@
                     "ignoreFailures": false
                 }
             ],
+            // "preLaunchTask": "build debug just",
             "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
