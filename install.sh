@@ -25,34 +25,35 @@ for dotfile in $dotfiles; do
     source_path=$(find profile -maxdepth 1 -name "$(basename "$target_path")")
 
     # check if source dotfile exists
-    if [ -z "$source_path" ]; then
-        echo "'$(basename "$target_path")' not found"
+    if [ ! -f "$source_path" ]; then
+        echo "'$source_path' not found"
         continue
     fi
 
     # check if target dotfile exists
-    if [ -f "$target_path" ]; then
-        # determine inodes of source and target dotfiles
-        target_inode=$(stat -c %i "$target_path")
-        source_inode=$(stat -c %i "$source_path")
-
-        # check if inodes are equal
-        if [ $target_inode = $source_inode ]; then
-            echo "'$target_path' already linked"
-        else
-            read -p "'$target_path' exists, override? (y/n): " res
-            if [ "$res" = y -o "$res" = Y ]; then
-                file_diff=$(diff -u "$source_path" "$target_path" || true)
-                if [ -n "$file_diff" ]; then
-                    echo "$file_diff" > "${source_path}.patch"
-                fi
-                # patch -u "$source_path" -i "${source_path}.patch"
-                ln -f "$source_path" "$target_path"
-            fi
-        fi
-    else
+    if [ ! -f "$target_path" ]; then
         echo "'$target_path' does not exist, link it"
         mkdir -p "$(dirname "$target_path")"
         ln -f "$source_path" "$target_path"
+        continue
+    fi
+
+    # determine inodes of source and target dotfiles
+    target_inode=$(stat -c %i "$target_path")
+    source_inode=$(stat -c %i "$source_path")
+
+    # check if inodes are equal
+    if [ $target_inode = $source_inode ]; then
+        echo "'$target_path' already linked"
+    else
+        read -p "'$target_path' exists, override? (y/n): " res
+        if [ "$res" = y -o "$res" = Y ]; then
+            file_diff=$(diff -u "$source_path" "$target_path" || true)
+            if [ -n "$file_diff" ]; then
+                echo "$file_diff" > "${source_path}.patch"
+            fi
+            # patch -u "$source_path" -i "${source_path}.patch"
+            ln -f "$source_path" "$target_path"
+        fi
     fi
 done
