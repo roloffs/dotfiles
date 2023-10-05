@@ -42,7 +42,10 @@ for dotfile in $dotfiles; do
         else
             read -p "'$target_path' exists, override? (y/n): " res
             if [ "$res" = y -o "$res" = Y ]; then
-                diff -u "$source_path" "$target_path" > "${source_path}.patch" || true
+                file_diff=$(diff -u "$source_path" "$target_path" || true)
+                if [ -n "$file_diff" ]; then
+                    echo "$file_diff" > "${source_path}.patch"
+                fi
                 # patch -u "$source_path" -i "${source_path}.patch"
                 ln -f "$source_path" "$target_path"
             fi
