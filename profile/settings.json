@@ -1,18 +1,22 @@
 {
+    // -------------------------------------------------------------------------
     // General
+    // -------------------------------------------------------------------------
     "window.zoomLevel": 1,
     "update.showReleaseNotes": false,
     "security.workspace.trust.banner": "never",
     "security.workspace.trust.untrustedFiles": "open",
     // "extensions.ignoreRecommendations": true,
-
+    // -------------------------------------------------------------------------
     // Explorer
+    // -------------------------------------------------------------------------
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.sortOrderLexicographicOptions": "upper",
     // "explorer.autoReveal": false,
-
+    // -------------------------------------------------------------------------
     // Files
+    // -------------------------------------------------------------------------
     "files.insertFinalNewline": true,
     // "files.autoSave": "afterDelay",
     // "files.autoSaveDelay": 1000,
@@ -21,8 +25,9 @@
     //     "RULES": "json",
     //     "EXPRESSIONS": "json"
     // },
-
+    // -------------------------------------------------------------------------
     // Editor
+    // -------------------------------------------------------------------------
     "editor.wordWrap": "on",
     "editor.renderWhitespace": "all",
     "editor.minimap.showSlider": "always",
@@ -43,38 +48,48 @@
     // "editor.parameterHints.enabled": false,
     // "editor.suggestOnTriggerCharacters": false,
     // "editor.suggest.snippetsPreventQuickSuggestions": false,
-
+    // -------------------------------------------------------------------------
     // Diff editor
+    // -------------------------------------------------------------------------
     "diffEditor.ignoreTrimWhitespace": false,
-
+    // -------------------------------------------------------------------------
     // Log
+    // -------------------------------------------------------------------------
     "[log]": {
         "editor.wordWrap": "on"
     },
-
+    // -------------------------------------------------------------------------
     // Debug
+    // -------------------------------------------------------------------------
     "debug.onTaskErrors": "abort",
-
+    // -------------------------------------------------------------------------
     // Problems
+    // -------------------------------------------------------------------------
     "problems.showCurrentInStatus": true,
-
+    // -------------------------------------------------------------------------
     // Rewrap [stkb.rewrap]
+    // Alt+Q
+    // -------------------------------------------------------------------------
     "rewrap.wrappingColumn": 72,
-
+    // -------------------------------------------------------------------------
     // Remote [ms-vscode-remote.remote-ssh]
+    // -------------------------------------------------------------------------
     "remote.SSH.remotePlatform": {
         "10.204.62.226": "linux"
     },
     "remote.SSH.path": "C:\\WINDOWS\\System32\\OpenSSH\\ssh.exe",
     "remote.SSH.useLocalServer": true,
     "remote.SSH.lockfilesInTmp": true,
-
+    // -------------------------------------------------------------------------
     // Git [eamodio.gitlens, mhutchie.git-graph]
+    // -------------------------------------------------------------------------
     "gitlens.codeLens.enabled": false,
     "gitlens.currentLine.enabled": false,
     // "gitlens.hovers.currentLine.over": "line",
-
+    // -------------------------------------------------------------------------
     // Json [jkillian.custom-local-formatters]
+    // Ctrl+Shift+I or Alt+Shift+F
+    // -------------------------------------------------------------------------
     "customLocalFormatters.formatters": [
         {
             "command": "${env:HOME}/.local/bin/hdump",
@@ -88,10 +103,11 @@
         "editor.formatOnType": false,
         "editor.defaultFormatter": "jkillian.custom-local-formatters"
     },
-
+    // -------------------------------------------------------------------------
     // Python [ms-python.python, ms-python.vscode-pylance,
-    // ms-python.pylint, ms-python.black-formatter, ms-python.isort,
-    // donjayamanne.python-environment-manager]
+    // ms-python.pylint, ms-python.black-formatter,
+    // ms-python.isort,donjayamanne.python-environment-manager]
+    // -------------------------------------------------------------------------
     "python.defaultInterpreterPath": "/usr/bin/python3",
     "python.languageServer": "Pylance",
     "python.analysis.typeCheckingMode": "basic",
@@ -117,9 +133,10 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
         }
-    },
-
+    }
+    // -------------------------------------------------------------------------
     // C++
+    // -------------------------------------------------------------------------
     // "C_Cpp.default.cppStandard": "c++17",
     // "C_Cpp.default.cppStandard": "c++20"
     // "C_Cpp.default.intelliSenseMode": "clang-x64",
@@ -156,7 +173,8 @@
     //     "editor.suggest.insertMode": "replace",
     //     "editor.semanticHighlighting.enabled": true
     // },
-
+    // -------------------------------------------------------------------------
     // Cmake
+    // -------------------------------------------------------------------------
     // "cmake.configureOnOpen": false
 }
