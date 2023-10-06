@@ -105,7 +105,7 @@
     },
     // -------------------------------------------------------------------------
     // Python [ms-python.python, ms-python.vscode-pylance,
-    // ms-python.pylint, ms-python.black-formatter,
+    // ms-python.pylint, ms-python.black-formatter, eeyore.yapf,
     // ms-python.isort,donjayamanne.python-environment-manager]
     // -------------------------------------------------------------------------
     "python.defaultInterpreterPath": "/usr/bin/python3",
@@ -118,9 +118,9 @@
     "python.linting.pylintPath": "pylint",
     "python.linting.pylintEnabled": true,
     // "python.formatting.provider": "yapf",
-    // "python.formatting.yapfArgs": [
-    //     "--style={based_on_style: google, column_limit: 80, indent_width: 2}"
-    // ],
+    "python.formatting.yapfArgs": [
+        "--style={based_on_style: google, column_limit: 80, indent_width: 4}"
+    ],
     "python.formatting.blackArgs": [
         "--line-length=80",
         "--preview"
@@ -128,8 +128,9 @@
     "[python]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": false,
+        // "editor.defaultFormatter": "eeyore.yapf",
         "editor.defaultFormatter": "ms-python.black-formatter",
-        // "editor.defaultFormatter": "ms-python.python"
+        // "editor.defaultFormatter": "ms-python.python",
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
         }
@@ -138,7 +139,7 @@
     // C++
     // -------------------------------------------------------------------------
     // "C_Cpp.default.cppStandard": "c++17",
-    // "C_Cpp.default.cppStandard": "c++20"
+    // "C_Cpp.default.cppStandard": "c++20",
     // "C_Cpp.default.intelliSenseMode": "clang-x64",
     // "C_Cpp.default.intelliSenseMode": "msvc-x64",
     // "clang-tidy.executable": "/usr/bin/clang-tidy",
