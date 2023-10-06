@@ -4,24 +4,29 @@ add_newline = false
 [username]
 show_always = true
 style_user = "bold blue"
-format = "[$user]($style) on "
+#format = "[$user]($style) on "
+format = "[$user@](bold green)"
 
 [hostname]
 ssh_only = false
-format = "[$hostname](bold green) "
+#format = "[$hostname](bold green) "
+format = "[$hostname](bold green):"
 #trim_at = ".companyname.com"
 
 [directory]
 style = "bold 8"
-format = "[\\[$path\\]]($style)[$read_only]($read_only_style) "
+#format = "[\\[$path\\]]($style)[$read_only]($read_only_style) "
+format = "[$path](bold blue)[$read_only]($read_only_style) "
 truncate_to_repo = false
 truncation_length = 0
 #truncation_symbol = "…/"
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[✗](bold red)"
+#success_symbol = "[➜](bold green)"
+#error_symbol = "[✗](bold red)"
+success_symbol = "[\\$](gray)"
+error_symbol = "[\\$](red)"
 
 #[status]
 #disabled = false
