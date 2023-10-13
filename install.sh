@@ -45,15 +45,16 @@ for dotfile in $dotfiles; do
     # check if inodes are equal
     if [ $target_inode = $source_inode ]; then
         echo "'$target_path' already linked"
-    else
-        read -p "'$target_path' exists, override? (y/n): " res
-        if [ "$res" = y -o "$res" = Y ]; then
-            file_diff=$(diff -u "$source_path" "$target_path" || true)
-            if [ -n "$file_diff" ]; then
-                echo "$file_diff" > "${source_path}.patch"
-            fi
-            # patch -u "$source_path" -i "${source_path}.patch"
-            ln -f "$source_path" "$target_path"
+        continue
+    fi
+
+    read -p "'$target_path' exists, override? (y/n): " res
+    if [ "$res" = y -o "$res" = Y ]; then
+        file_diff=$(diff -u "$source_path" "$target_path" || true)
+        if [ -n "$file_diff" ]; then
+            echo "$file_diff" > "${source_path}.patch"
         fi
+        # patch -u "$source_path" -i "${source_path}.patch"
+        ln -f "$source_path" "$target_path"
     fi
 done
