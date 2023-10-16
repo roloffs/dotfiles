@@ -92,7 +92,7 @@
     // -------------------------------------------------------------------------
     "customLocalFormatters.formatters": [
         {
-            "command": "${env:HOME}/.local/bin/hdump",
+            "command": "/home/roloff/.local/bin/hdump",
             "languages": [
                 "json"
             ]
@@ -148,7 +148,7 @@
     //     "-std=c++20",
     //     "-stdlib=libc++",
     //     "-IOSS",
-    //     "-I${env:HOME}/.devcloud-external/include",
+    //     "-I/home/roloff/.devcloud-external/include",
     // ],
     // "clang-tidy.checks": [
     //     "modernize-*"

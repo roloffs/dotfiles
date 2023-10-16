@@ -4,7 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/OSS",
-                "${env:HOME}/.devcloud-external/include"
+                "${userHome}/.devcloud-external/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
