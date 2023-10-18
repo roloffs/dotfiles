@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/OSS",
-                "${userHome}/.devcloud-external/include"
+                // "${userHome}/.devcloud-external/include",
+                "${env.HOME}/.devcloud-external/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
@@ -12,7 +13,7 @@
             "cStandard": "c11",
             "cppStandard": "c++20",
             "intelliSenseMode": "linux-gcc-x64"
-            // "intelliSenseMode": "clang-x64"
+            // "intelliSenseMode": "linux-clang-x64"
         }
     ],
     "version": 4

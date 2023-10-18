@@ -3,6 +3,13 @@
     // General
     // -------------------------------------------------------------------------
     "window.zoomLevel": 1,
+    "window.commandCenter": false,
+    // "window.density.editorTabHeight": "compact",
+    "workbench.editor.tabSizing": "shrink",
+    // "workbench.editor.tabSizing": "fixed",
+    // "workbench.editor.tabSizingFixedMaxWidth": 120,
+    // "workbench.editor.wrapTabs": true,
+    // "workbench.editor.scrollToSwitchTabs": true,
     "update.showReleaseNotes": false,
     "security.workspace.trust.banner": "never",
     "security.workspace.trust.untrustedFiles": "open",
@@ -25,14 +32,18 @@
     //     "RULES": "json",
     //     "EXPRESSIONS": "json"
     // },
+    // "files.watcherExclude": {
+    //     "**/.vscode/**": true
+    // },
     // -------------------------------------------------------------------------
     // Editor
+    // Ctrl+Shift+^ or Ctrl+Shift+\
     // -------------------------------------------------------------------------
     "editor.wordWrap": "on",
     "editor.renderWhitespace": "all",
     "editor.minimap.showSlider": "always",
     "editor.smoothScrolling": true,
-    "editor.detectIndentation": false,
+    "editor.detectIndentation": true,
     "editor.rulers": [
         80,
         120
@@ -86,6 +97,12 @@
     "gitlens.codeLens.enabled": false,
     "gitlens.currentLine.enabled": false,
     // "gitlens.hovers.currentLine.over": "line",
+    // "gitlens.menus": {
+    //     "editorGroup": {
+    //         "blame": false,
+    //         "compare": false
+    //     },
+    // },
     // -------------------------------------------------------------------------
     // Json [jkillian.custom-local-formatters]
     // Ctrl+Shift+I or Alt+Shift+F
@@ -104,26 +121,34 @@
         "editor.defaultFormatter": "jkillian.custom-local-formatters"
     },
     // -------------------------------------------------------------------------
+    // Protobuf [zxh404.vscode-proto3]
+    // -------------------------------------------------------------------------
+    "[proto3]": {
+        // "editor.formatOnSave": true,
+        "editor.formatOnType": false,
+        "editor.defaultFormatter": "zxh404.vscode-proto3"
+    },
+    // -------------------------------------------------------------------------
     // Python [ms-python.python, ms-python.vscode-pylance,
     // ms-python.pylint, ms-python.black-formatter, eeyore.yapf,
-    // ms-python.isort,donjayamanne.python-environment-manager]
+    // ms-python.isort, donjayamanne.python-environment-manager]
     // -------------------------------------------------------------------------
-    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "python.defaultInterpreterPath": "/usr/bin/python",
     "python.languageServer": "Pylance",
     "python.analysis.typeCheckingMode": "basic",
     // "python.analysis.typeCheckingMode": "strict",
     "python.analysis.autoImportCompletions": true,
-    "python.linting.enabled": true,
-    "python.linting.lintOnSave": true,
-    "python.linting.pylintPath": "pylint",
-    "python.linting.pylintEnabled": true,
-    // "python.formatting.provider": "yapf",
-    "python.formatting.yapfArgs": [
-        "--style={based_on_style: google, column_limit: 80, indent_width: 4}"
+    // "python.linting.enabled": true,
+    // "python.linting.lintOnSave": true,
+    // "python.linting.pylintPath": "pylint",
+    // "python.linting.pylintEnabled": true,
+    "yapf.args": [
+        "--style",
+        "{based_on_style: google, column_limit: 80, indent_width: 4}"
     ],
-    "python.formatting.blackArgs": [
-        "--line-length=80",
-        "--preview"
+    "black-formatter.args": [
+        "--line-length",
+        "80"
     ],
     "[python]": {
         "editor.formatOnSave": true,
@@ -134,14 +159,10 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
         }
-    }
+    },
     // -------------------------------------------------------------------------
     // C++
     // -------------------------------------------------------------------------
-    // "C_Cpp.default.cppStandard": "c++17",
-    // "C_Cpp.default.cppStandard": "c++20",
-    // "C_Cpp.default.intelliSenseMode": "clang-x64",
-    // "C_Cpp.default.intelliSenseMode": "msvc-x64",
     // "clang-tidy.executable": "/usr/bin/clang-tidy",
     // "clang-tidy.lintOnSave": true,
     // "clang-tidy.compilerArgs": [
@@ -160,20 +181,15 @@
     //     "-x=c++"
     // ],
     // "clang-format.executable": "/usr/bin/clang-format",
-    // "clang-format.language.proto.enable": false,
-    // "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4}",
-    // "C_Cpp.files.exclude": {
-    //     "**/.vscode": true,
-    //     "**/.settings": true
-    // },
-    // "[cpp]": {
-    //     "editor.formatOnSave": true,
-    //     "editor.formatOnType": false,
-    //     "editor.defaultFormatter": "xaver.clang-format",
-    //     "editor.wordBasedSuggestions": false,
-    //     "editor.suggest.insertMode": "replace",
-    //     "editor.semanticHighlighting.enabled": true
-    // },
+    // "clang-format.style": "{BasedOnStyle: Google, IndentWidth: 4}",
+    "[cpp]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": false,
+        "editor.defaultFormatter": "xaver.clang-format",
+        // "editor.wordBasedSuggestions": false,
+        // "editor.suggest.insertMode": "replace",
+        // "editor.semanticHighlighting.enabled": true
+    },
     // -------------------------------------------------------------------------
     // Cmake
     // -------------------------------------------------------------------------
