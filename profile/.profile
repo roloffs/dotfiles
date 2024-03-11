@@ -27,8 +27,8 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # add go's install path to PATH
-if [ -d "$HOME/go/bin" ] ; then
-    PATH="$HOME/go/bin:$PATH"
+if [ -d "$HOME/.local/go/bin" ] ; then
+    PATH="$HOME/.local/go/bin:$PATH"
 fi
 
 # add cargo's install path to PATH
