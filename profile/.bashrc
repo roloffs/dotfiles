@@ -59,15 +59,11 @@ fi
 
 __show_exit_code() {
     local r=${PIPESTATUS[-1]}
-    if [[ $r == 0 ]]; then
-        printf ""
-        exit
-    fi
-    printf "%s %s " $(tput setaf 3) $r
+    [ $r != 0 ] && printf " %s " $r
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0;31m\]$(__git_ps1) \[\033[0;30m\][\t]$(__show_exit_code)\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h \[\e[1;34m\][\w]\[\e[0;31m\]$(__git_ps1) \[\e[1;30m\][\t]\[\e[1;33m\]$(__show_exit_code)\[\e[0m\]\$ '
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
 else
