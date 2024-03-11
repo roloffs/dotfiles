@@ -63,7 +63,7 @@ __show_exit_code() {
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h \[\e[1;34m\][\w]\[\e[0;31m\]$(__git_ps1) \[\e[1;30m\][\t]\[\e[1;33m\]$(__show_exit_code)\[\e[0m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0;31m\]$(__git_ps1) \[\e[1;30m\][\t]\[\e[1;33m\]$(__show_exit_code)\[\e[0m\]\$ '
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
 else
