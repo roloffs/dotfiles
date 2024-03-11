@@ -2,7 +2,7 @@
 set -eu
 
 # install essential tools
-# sudo apt-get install -y vim tree htop colordiff
+# sudo apt-get install -y vim git tig tree htop meld colordiff
 
 # download git-prompt.sh
 wget -q -O ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
@@ -14,6 +14,7 @@ dotfiles="\
     ~/.inputrc \
     ~/.vimrc \
     ~/.gitconfig \
+    ~/.gitignore \
     ~/.config/Code/User/settings.json \
 "
 

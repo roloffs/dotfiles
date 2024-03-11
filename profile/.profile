@@ -26,7 +26,12 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# add cargo's install path to PATH (rust's package manager)
+# add go's install path to PATH
+if [ -d "$HOME/go/bin" ] ; then
+    PATH="$HOME/go/bin:$PATH"
+fi
+
+# add cargo's install path to PATH
 if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
@@ -35,6 +40,9 @@ fi
 export EDITOR=vim
 export VISUAL=vim
 export PAGER=less
+
+# mouse scrolling in less
+#export LESS='-R'
 
 # colorful man pages
 export LESS_TERMCAP_mb=$'\e[1;32m'

@@ -1,6 +1,6 @@
 [user]
     name = Sascha Roloff
-    email = sascha.roloff@gmail.com
+    email = sascha.roloff@gmail.com # .git/config
 [pull]
     ff = only
 # [http "https://<server.com>"]
@@ -8,3 +8,5 @@
 #     sslVerify = false
 #     sslCert = ~/pkifiles/cert-alm.crt
 #     sslKey = ~/pkifiles/cert-alm.key
+[core]
+    excludesFile = ~/.gitignore # .git/info/exclude

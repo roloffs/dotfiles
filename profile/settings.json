@@ -2,18 +2,19 @@
     // -------------------------------------------------------------------------
     // General
     // -------------------------------------------------------------------------
-    "window.zoomLevel": 1,
     "window.commandCenter": false,
     // "window.density.editorTabHeight": "compact",
-    "workbench.editor.tabSizing": "shrink",
+    "update.showReleaseNotes": false,
+    "security.workspace.trust.banner": "never",
+    "security.workspace.trust.untrustedFiles": "open",
+    // "workbench.editor.tabSizing": "shrink",
     // "workbench.editor.tabSizing": "fixed",
     // "workbench.editor.tabSizingFixedMaxWidth": 120,
     // "workbench.editor.wrapTabs": true,
     // "workbench.editor.scrollToSwitchTabs": true,
-    "update.showReleaseNotes": false,
-    "security.workspace.trust.banner": "never",
-    "security.workspace.trust.untrustedFiles": "open",
     // "extensions.ignoreRecommendations": true,
+    "http.proxyStrictSSL": false,
+    // "http.proxy":"http://127.0.0.1:3128",
     // -------------------------------------------------------------------------
     // Explorer
     // -------------------------------------------------------------------------
@@ -25,6 +26,9 @@
     // Files
     // -------------------------------------------------------------------------
     "files.insertFinalNewline": true,
+    "files.exclude": {
+        "**/.ccls-cache": true,
+    },
     // "files.autoSave": "afterDelay",
     // "files.autoSaveDelay": 1000,
     // "files.associations": {
@@ -37,16 +41,18 @@
     // },
     // -------------------------------------------------------------------------
     // Editor
-    // Ctrl+Shift+^ or Ctrl+Shift+\
+    // Ctrl+Shift+^ (german layout) or Ctrl+Shift+\ (english layout)
     // -------------------------------------------------------------------------
     "editor.wordWrap": "on",
     "editor.renderWhitespace": "all",
     "editor.minimap.showSlider": "always",
     "editor.smoothScrolling": true,
     "editor.detectIndentation": true,
+    "editor.wordBasedSuggestionsMode": "currentDocument",
+    "editor.stickyScroll.enabled": true,
     "editor.rulers": [
         80,
-        120
+        120,
     ],
     // "editor.quickSuggestions": false,
     // "editor.quickSuggestions": {
@@ -54,6 +60,7 @@
     //     "strings": "off",
     //     "other": "off"
     // },
+    // "editor.wordBasedSuggestions": false,
     // "editor.selectionHighlight": false,
     // "editor.occurrencesHighlight": false,
     // "editor.parameterHints.enabled": false,
@@ -63,11 +70,12 @@
     // Diff editor
     // -------------------------------------------------------------------------
     "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.hideUnchangedRegions.enabled": true,
     // -------------------------------------------------------------------------
     // Log
     // -------------------------------------------------------------------------
     "[log]": {
-        "editor.wordWrap": "on"
+        "editor.wordWrap": "on",
     },
     // -------------------------------------------------------------------------
     // Debug
@@ -86,7 +94,7 @@
     // Remote [ms-vscode-remote.remote-ssh]
     // -------------------------------------------------------------------------
     "remote.SSH.remotePlatform": {
-        "10.204.62.226": "linux"
+        "10.204.62.226": "linux",
     },
     "remote.SSH.path": "C:\\WINDOWS\\System32\\OpenSSH\\ssh.exe",
     "remote.SSH.useLocalServer": true,
@@ -105,7 +113,7 @@
     // },
     // -------------------------------------------------------------------------
     // Json [jkillian.custom-local-formatters]
-    // Ctrl+Shift+I or Alt+Shift+F
+    // Ctrl+Shift+I (german language) or Alt+Shift+F (english language)
     // -------------------------------------------------------------------------
     "customLocalFormatters.formatters": [
         {
@@ -118,7 +126,8 @@
     "[json]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": false,
-        "editor.defaultFormatter": "jkillian.custom-local-formatters"
+        "editor.defaultFormatter": "jkillian.custom-local-formatters",
+        "rewrap.wrappingColumn": 80,
     },
     // -------------------------------------------------------------------------
     // Protobuf [zxh404.vscode-proto3]
@@ -126,7 +135,8 @@
     "[proto3]": {
         // "editor.formatOnSave": true,
         "editor.formatOnType": false,
-        "editor.defaultFormatter": "zxh404.vscode-proto3"
+        "editor.defaultFormatter": "zxh404.vscode-proto3",
+        "rewrap.wrappingColumn": 80,
     },
     // -------------------------------------------------------------------------
     // Python [ms-python.python, ms-python.vscode-pylance,
@@ -144,11 +154,12 @@
     // "python.linting.pylintEnabled": true,
     "yapf.args": [
         "--style",
-        "{based_on_style: google, column_limit: 80, indent_width: 4}"
+        "{based_on_style: google, column_limit: 80, indent_width: 4}",
     ],
     "black-formatter.args": [
+        "--preview",
         "--line-length",
-        "80"
+        "80",
     ],
     "[python]": {
         "editor.formatOnSave": true,
@@ -158,27 +169,59 @@
         // "editor.defaultFormatter": "ms-python.python",
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
-        }
+        },
+        "rewrap.wrappingColumn": 80,
     },
     // -------------------------------------------------------------------------
-    // C++
+    // Go [golang.go, bongnv.go-custom-format]
     // -------------------------------------------------------------------------
+    "go.goroot": "/home/roloff/sdk/go1.20.12",
+    "gopls": {
+        "importShortcut": "Definition",
+        "ui.semanticTokens": true,
+    },
+    "goCustomFormat.onSave": false,
+    "goCustomFormat.fmtCmds": [
+        "golines",
+        "-m",
+        "80"
+    ],
+    // -------------------------------------------------------------------------
+    // C++ [ms-vscode.cpptools, xaver.clang-format,
+    // cschlosser.doxdocgen, ccls-project.ccls,
+    // llvm-vs-code-extensions.vscode-clangd, CS128.cs128-clang-tidy]
+    // -------------------------------------------------------------------------
+    "C_Cpp.autocomplete": "disabled",
+    "C_Cpp.formatting": "disabled",
+    "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    // "C_Cpp.experimentalFeatures": "enabled",
+    // "C_Cpp.intelliSenseCacheSize": 0,
+    // "clangd.arguments": [
+    //     "--background-index",
+    //     "--header-insertion=iwyu",
+    //     "-j=20",
+    // ],
+    // "clangd.fallbackFlags": [
+    //     "-std=c++2a",
+    //     "-I${workspaceFolder}/OSS",
+    //     "-I/tmp/just_external_headers/include",
+    // ],
+    "ccls.codeLens.enabled": false,
+    "ccls.cache.hierarchicalPath": true,
     // "clang-tidy.executable": "/usr/bin/clang-tidy",
     // "clang-tidy.lintOnSave": true,
     // "clang-tidy.compilerArgs": [
     //     "-std=c++20",
     //     "-stdlib=libc++",
     //     "-IOSS",
-    //     "-I/home/roloff/.devcloud-external/include",
+    //     "-I/home/roloff/.devcloud-external/include-dev",
     // ],
     // "clang-tidy.checks": [
-    //     "modernize-*"
-    // ],
-    // "clang-tidy.compilerArgs": [
-    //     "-std=c++17"
+    //     "modernize-*",
     // ],
     // "clang-tidy.compilerArgsBefore": [
-    //     "-x=c++"
+    //     "-x=c++",
     // ],
     // "clang-format.executable": "/usr/bin/clang-format",
     // "clang-format.style": "{BasedOnStyle: Google, IndentWidth: 4}",
@@ -186,10 +229,14 @@
         "editor.formatOnSave": true,
         "editor.formatOnType": false,
         "editor.defaultFormatter": "xaver.clang-format",
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
         // "editor.wordBasedSuggestions": false,
         // "editor.suggest.insertMode": "replace",
-        // "editor.semanticHighlighting.enabled": true
+        // "editor.semanticHighlighting.enabled": true,
+        "rewrap.wrappingColumn": 80,
     },
+    "window.zoomLevel": 1,
     // -------------------------------------------------------------------------
     // Cmake
     // -------------------------------------------------------------------------

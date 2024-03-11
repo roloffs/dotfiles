@@ -16,6 +16,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTFILE="$HOME/.bash_history_"
 HISTSIZE=200000
 HISTFILESIZE=200000
 
@@ -56,8 +57,19 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+__show_exit_code() {
+    local r=${PIPESTATUS[-1]}
+    if [[ $r == 0 ]]; then
+        printf ""
+        exit
+    fi
+    printf "%s %s " $(tput setaf 3) $r
+}
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0;31m\]$(__git_ps1)\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0;31m\]$(__git_ps1) \[\033[0;30m\][\t]$(__show_exit_code)\[\033[00m\]\$ '
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
