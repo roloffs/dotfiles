@@ -57,13 +57,37 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-__show_exit_code() {
-    local r=${PIPESTATUS[-1]}
-    [ $r != 0 ] && printf " %s " $r
+__start=0
+__new_command=0
+
+__elapsed_time() {
+    local end=$(date +%s%N)
+    local elapsed=$(echo "($end-$__start)/1000000" | bc) # elapsed time in ms
+    if [ $__new_command = 1 ]; then
+        local hrs=$(echo "$elapsed/3600000" | bc)
+        local min=$(echo "($elapsed/60000)%60" | bc)
+        local sec=$(echo "($elapsed/1000)%60" | bc)
+        local ms=$(echo "$elapsed%1000" | bc)
+        if [ $hrs -gt 0 ]; then
+            printf " [%sh%smin]" $hrs $min
+        elif [ $min -gt 0 ]; then
+            printf " [%smin%ss]" $min $sec
+        else
+            printf " [%ss%sms]" $sec $ms
+        fi
+    fi
+}
+
+__exit_code() {
+    local ret=${PIPESTATUS[-1]}
+    if [ $__new_command = 1 -a $ret != 0 ]; then
+        printf " %s " $ret
+    fi
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0;31m\]$(__git_ps1) \[\e[1;30m\][\t]\[\e[1;33m\]$(__show_exit_code)\[\e[0m\]\$ '
+    PS0='${__new_command:0:$((__new_command=1,0))}${__start:0:$((__start=$(date +%s%N),0))}'
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0;31m\]$(__git_ps1)\[\e[1;30m\]$(__elapsed_time)\[\e[1;33m\]$(__exit_code)\[\e[0m\]${__new_command:0:$((__new_command=0,0))}\$ '
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
 else
