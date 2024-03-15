@@ -61,13 +61,13 @@ __start=0
 __new_command=0
 
 __elapsed_time() {
-    local end=$(date +%s%N)
-    local elapsed=$(echo "($end-$__start)/1000000" | bc) # elapsed time in ms
     if [ $__new_command = 1 ]; then
-        local hrs=$(echo "$elapsed/3600000" | bc)
-        local min=$(echo "($elapsed/60000)%60" | bc)
-        local sec=$(echo "($elapsed/1000)%60" | bc)
-        local ms=$(echo "$elapsed%1000" | bc)
+        local end=$(date +%s%N)
+        local elapsed=$((($end - $__start) / 1000000)) # elapsed time in ms
+        local hrs=$(($elapsed / 3600000))
+        local min=$(($elapsed / 60000 % 60))
+        local sec=$(($elapsed / 1000 % 60))
+        local ms=$(($elapsed % 1000))
         if [ $hrs -gt 0 ]; then
             printf " [%sh%smin]" $hrs $min
         elif [ $min -gt 0 ]; then
