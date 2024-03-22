@@ -187,6 +187,14 @@
         "80"
     ],
     // -------------------------------------------------------------------------
+    // Dart []
+    // -------------------------------------------------------------------------
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": false,
+        "rewrap.wrappingColumn": 80,
+    },
+    // -------------------------------------------------------------------------
     // C++ [ms-vscode.cpptools, xaver.clang-format,
     // cschlosser.doxdocgen, ccls-project.ccls,
     // llvm-vs-code-extensions.vscode-clangd, CS128.cs128-clang-tidy]
