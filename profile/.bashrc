@@ -58,36 +58,33 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 __start=0
-__new_command=0
+__elapsed=0
 
 __elapsed_time() {
-    if [ $__new_command = 1 ]; then
-        local end=$(date +%s%N)
-        local elapsed=$((($end - $__start) / 1000000)) # elapsed time in ms
-        local hrs=$(($elapsed / 3600000))
-        local min=$(($elapsed / 60000 % 60))
-        local sec=$(($elapsed / 1000 % 60))
-        local ms=$(($elapsed % 1000))
-        if [ $hrs -gt 0 ]; then
-            printf " [%sh%smin]" $hrs $min
-        elif [ $min -gt 0 ]; then
-            printf " [%smin%ss]" $min $sec
-        else
-            printf " [%ss%sms]" $sec $ms
-        fi
+    local elapsed=$(($__elapsed / 1000000)) # elapsed time in ms
+    local hrs=$(($elapsed / 3600000))
+    local min=$(($elapsed / 60000 % 60))
+    local sec=$(($elapsed / 1000 % 60))
+    local ms=$(($elapsed % 1000))
+    if [ $hrs -gt 0 ]; then
+        printf "[%sh%smin] " $hrs $min
+    elif [ $min -gt 0 ]; then
+        printf "[%smin%ss] " $min $sec
+    else
+        printf "[%ss%sms] " $sec $ms
     fi
 }
 
 __exit_code() {
     local ret=${PIPESTATUS[-1]}
-    if [ $__new_command = 1 -a $ret != 0 ]; then
+    if [ $ret != 0 ]; then
         printf " %s " $ret
     fi
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS0='${__new_command:0:$((__new_command=1,0))}${__start:0:$((__start=$(date +%s%N),0))}'
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0;31m\]$(__git_ps1)\[\e[1;30m\]$(__elapsed_time)\[\e[1;33m\]$(__exit_code)\[\e[0m\]${__new_command:0:$((__new_command=0,0))}\$ '
+    PS0='${__start:0:$((__start=$(date +%s%N),0))}'
+    PS1='${__elapsed:0:$((__elapsed=$([ $__start != 0 ] && echo $(($(date +%s%N) - $__start)) || echo $__elapsed),0))}${debian_chroot:+($debian_chroot)}\[\e[0;37m\]$(__elapsed_time)\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0;31m\]$(__git_ps1)\[\e[1;33m\]$(__exit_code)\[\e[0m\]${__start:0:$((__start=0,0))}\$ '
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
 else
