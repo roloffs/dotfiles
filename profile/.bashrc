@@ -61,18 +61,8 @@ __start=0
 __elapsed=0
 
 __elapsed_time() {
-    local elapsed=$(($__elapsed / 1000000)) # elapsed time in ms
-    local hrs=$(($elapsed / 3600000))
-    local min=$(($elapsed / 60000 % 60))
-    local sec=$(($elapsed / 1000 % 60))
-    local ms=$(($elapsed % 1000))
-    if [ $hrs -gt 0 ]; then
-        printf "[%sh%smin] " $hrs $min
-    elif [ $min -gt 0 ]; then
-        printf "[%smin%ss] " $min $sec
-    else
-        printf "[%ss%sms] " $sec $ms
-    fi
+    local elapsed=$(echo "$__elapsed / 1000000000" | bc -l) # elapsed time in s
+    printf "[%.3f s] " ${elapsed/./,}
 }
 
 __exit_code() {
