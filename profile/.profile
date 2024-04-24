@@ -26,16 +26,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# add go's install path to PATH
-if [ -d "$HOME/go/bin" ] ; then
-    PATH="$HOME/go/bin:$PATH"
-fi
-
-# add cargo's install path to PATH
-if [ -d "$HOME/.cargo/bin" ] ; then
-    PATH="$HOME/.cargo/bin:$PATH"
-fi
-
 # basic environment variables
 export EDITOR=vim
 export VISUAL=vim
@@ -61,3 +51,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 #export HTTP_PROXY=$http_proxy
 #export HTTPS_PROXY=$https_proxy
 #export FTP_PROXY=$ftp_proxy
+
+PATH="$HOME/.local/go/bin:$PATH"
+PATH="$HOME/go/bin:$PATH"
+PATH="$HOME/.pub-cache/bin:$PATH"
