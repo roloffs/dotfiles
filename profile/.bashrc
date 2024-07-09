@@ -62,7 +62,7 @@ __elapsed=0
 
 __elapsed_time() {
     local elapsed=$(echo "$__elapsed / 1000000000" | bc -l) # elapsed time in s
-    printf "[%.3f s] " ${elapsed/./,}
+    LC_NUMERIC=C printf "[%.3f s] " $elapsed
 }
 
 __exit_code() {
