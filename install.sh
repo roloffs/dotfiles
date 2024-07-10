@@ -19,12 +19,14 @@ dotfiles="\
     ~/.config/Code/User/settings.json \
 "
 
+installed=".installed"
+
 for dotfile in $dotfiles; do
     # Determine target path of dotfile.
     target_path=$(echo "$dotfile" | sed "s|~|$HOME|g")
 
     # Determine source path of dotfile.
-    source_path=$(find profile -maxdepth 1 -name "$(basename "$target_path")")
+    source_path=$(find profile -maxdepth 1 -name "$(basename "$dotfile")")
 
     # Check if source dotfile exists.
     if [ ! -f "$source_path" ]; then
@@ -44,20 +46,27 @@ for dotfile in $dotfiles; do
     target_inode=$(stat -c %i "$target_path")
     source_inode=$(stat -c %i "$source_path")
 
-    # Check if inodes are equal.
-    if [ $target_inode = $source_inode ]; then
-        echo "'$target_path' already linked"
+    # Check if dotfile is already installed.
+    if grep -qw "$(basename "$dotfile")" "$installed"; then
+        # Check if inodes are equal.
+        if [ $target_inode = $source_inode ]; then
+            echo "'$target_path' already linked"
+            continue
+        fi
+
+        echo "'$target_path' got unlinked, link it"
+        ln -f "$source_path" "$target_path"
         continue
     fi
 
-    # Decide which dotfile to use.
-    read -p "'$target_path' exists, override? (y/n): " res
-    if [ "$res" = y -o "$res" = Y ]; then
-        file_diff=$(diff -u "$source_path" "$target_path" || true)
-        if [ -n "$file_diff" ]; then
-            echo "$file_diff" > "${source_path}.patch"
-        fi
-        # patch -u "$source_path" -i "${source_path}.patch"
-        ln -f "$source_path" "$target_path"
-    fi
+    # Backup existing dotfile.
+    cp "$target_path" > "${source_path}.backup"
+
+    # Hardlink dotfile.
+    ln -f "$source_path" "$target_path"
+
+    # Add entry to installed file.
+    echo "$target_path" >> "$installed"
+
+    echo "'$target_path' installed, backup created"
 done
