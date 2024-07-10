@@ -46,27 +46,22 @@ for dotfile in $dotfiles; do
     target_inode=$(stat -c %i "$target_path")
     source_inode=$(stat -c %i "$source_path")
 
+    # Check if inodes are equal.
+    if [ $target_inode = $source_inode ]; then
+        echo "'$target_path' already linked"
+        continue
+    fi
+
     # Check if dotfile is already installed.
     if grep -qw "$(basename "$dotfile")" "$installed"; then
-        # Check if inodes are equal.
-        if [ $target_inode = $source_inode ]; then
-            echo "'$target_path' already linked"
-            continue
-        fi
-
         echo "'$target_path' got unlinked, link it"
         ln -f "$source_path" "$target_path"
         continue
     fi
 
-    # Backup existing dotfile.
+    # Install dotfile.
+    echo "'$target_path' exists, create backup and link it"
     cp "$target_path" > "${source_path}.backup"
-
-    # Hardlink dotfile.
-    ln -f "$source_path" "$target_path"
-
-    # Add entry to installed file.
     echo "$target_path" >> "$installed"
-
-    echo "'$target_path' installed, backup created"
+    ln -f "$source_path" "$target_path"
 done
