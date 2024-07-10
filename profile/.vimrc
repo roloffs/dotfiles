@@ -36,7 +36,7 @@ set nowritebackup
 
 set backspace=2 " allows backspace to delete over line ends
 "set whichwrap+=<,>,h,l,[,] " allows cursor to move over line ends
-"set paste " do not format incoming text (resets a lot of other options)
+"set paste " do not format incoming text (resets a lot of other options, use :set nopaste to temporarily deactivate formatting incoming text)
 
 " enables syntax highlighting
 if has("syntax")
