@@ -68,7 +68,7 @@ __elapsed_time() {
 __exit_code() {
     local ret=${PIPESTATUS[-1]}
     if [ $ret != 0 ]; then
-        local nam=$(kill -l $ret)
+        local nam=$(kill -l $ret 2> /dev/null)
         if [ -n "$nam" ]; then
             printf " SIG%s " $nam
         else
