@@ -5,7 +5,9 @@ set -eu
 # sudo apt-get install -y vim git tig tree htop meld colordiff
 
 # Download git-prompt.sh.
-wget -q https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
+if [ ! -f ~/.git-prompt.sh ]; then
+    wget -q https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
+fi
 
 # List of dotfiles to be installed.
 dotfiles="\
