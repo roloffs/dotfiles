@@ -60,7 +60,7 @@ endif
 "    filetype plugin indent on
 "endif
 
-" enable cursor placement by mouse (is required, e.g., not to scroll in tiling window managers, hold shift key to activate normal mouse behavior)
+" enable cursor placement by mouse (is required, e.g., not to scroll in tiling window managers, hold shift key to activate normal mouse behavior, use :set mouse-=a to temporarily deactivate mouse support)
 "if has('mouse')
 "    set mouse=a
 "endif
