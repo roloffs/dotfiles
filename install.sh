@@ -17,6 +17,7 @@ dotfiles="\
     ~/.vimrc \
     ~/.gitconfig \
     ~/.gitignore \
+    ~/.gdbinit \
     ~/.config/user-dirs.dirs \
     ~/.config/Code/User/settings.json \
 "
