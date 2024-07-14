@@ -64,9 +64,6 @@ for dotfile in $dotfiles; do
     # Check if dotfile is supposed to be installed.
     if grep -qw "$target_path" "$installed" 2> /dev/null; then
         echo "'$target_path' got unlinked, link it"
-        if ! diff -q "$target_path" "$source_path" > /dev/null; then
-            cp "$target_path" "${source_path}.backup"
-        fi
         ln -f "$source_path" "$target_path"
         continue
     fi
