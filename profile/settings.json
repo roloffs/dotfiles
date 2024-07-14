@@ -50,6 +50,9 @@
     "editor.detectIndentation": true,
     "editor.wordBasedSuggestionsMode": "currentDocument",
     "editor.stickyScroll.enabled": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    // "editor.hover.enabled": false,
+    "editor.codeLens": false,
     "editor.rulers": [
         80,
         120,
@@ -133,9 +136,9 @@
     // Protobuf [zxh404.vscode-proto3]
     // -------------------------------------------------------------------------
     "[proto3]": {
-        // "editor.formatOnSave": true,
+        "editor.formatOnSave": true,
         "editor.formatOnType": false,
-        "editor.defaultFormatter": "zxh404.vscode-proto3",
+        // "editor.defaultFormatter": "zxh404.vscode-proto3",
         "rewrap.wrappingColumn": 80,
     },
     // -------------------------------------------------------------------------
@@ -168,24 +171,36 @@
         "editor.defaultFormatter": "ms-python.black-formatter",
         // "editor.defaultFormatter": "ms-python.python",
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": "explicit"
         },
+        "rewrap.wrappingColumn": 80,
+    },
+    // -------------------------------------------------------------------------
+    // Shell []
+    // -------------------------------------------------------------------------
+    "[shellscript]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": false,
         "rewrap.wrappingColumn": 80,
     },
     // -------------------------------------------------------------------------
     // Go [golang.go, bongnv.go-custom-format]
     // -------------------------------------------------------------------------
-    "go.goroot": "/home/roloff/sdk/go1.20.12",
-    "gopls": {
-        "importShortcut": "Definition",
-        "ui.semanticTokens": true,
+    // "gopls": {
+    //     "importShortcut": "Definition",
+    //     "ui.semanticTokens": true,
+    // },
+    // "goCustomFormat.onSave": false,
+    // "goCustomFormat.fmtCmds": [
+    //     "golines",
+    //     "-m",
+    //     "80"
+    // ],
+    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": false,
+        "rewrap.wrappingColumn": 80,
     },
-    "goCustomFormat.onSave": false,
-    "goCustomFormat.fmtCmds": [
-        "golines",
-        "-m",
-        "80"
-    ],
     // -------------------------------------------------------------------------
     // Dart []
     // -------------------------------------------------------------------------
@@ -194,6 +209,8 @@
         "editor.formatOnType": false,
         "rewrap.wrappingColumn": 80,
     },
+    "dart.closingLabels": false,
+    // "dart.previewFlutterUiGuides": true,
     // -------------------------------------------------------------------------
     // C++ [ms-vscode.cpptools, xaver.clang-format,
     // cschlosser.doxdocgen, ccls-project.ccls,
@@ -245,6 +262,7 @@
         "rewrap.wrappingColumn": 80,
     },
     "window.zoomLevel": 1,
+    "go.toolsManagement.autoUpdate": true,
     // -------------------------------------------------------------------------
     // Cmake
     // -------------------------------------------------------------------------
