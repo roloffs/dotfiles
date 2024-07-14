@@ -54,4 +54,5 @@ export LESS_TERMCAP_ue=$'\e[0m'
 
 PATH="$HOME/.local/go/bin:$PATH"
 PATH="$HOME/go/bin:$PATH"
+PATH="$HOME/.local/flutter/bin:$PATH"
 PATH="$HOME/.pub-cache/bin:$PATH"
