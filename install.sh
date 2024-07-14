@@ -22,14 +22,14 @@ dotfiles="\
     ~/.config/Code/User/settings.json \
 "
 
-installed=".installed"
+installed=.installed
 
 for dotfile in $dotfiles; do
     # Determine target path of dotfile.
     target_path=$(echo "$dotfile" | sed "s|~|$HOME|g")
 
     # Determine source path of dotfile.
-    source_path=$(find profile -maxdepth 1 -name "$(basename "$dotfile")")
+    source_path=$(find "profile" -maxdepth 1 -name "$(basename "$dotfile")")
 
     # Check if source dotfile exists.
     if [ ! -f "$source_path" ]; then
@@ -42,6 +42,9 @@ for dotfile in $dotfiles; do
         echo "'$target_path' does not exist, link it"
         mkdir -p "$(dirname "$target_path")"
         ln -f "$source_path" "$target_path"
+        if ! grep -qw "$target_path" "$installed" 2> /dev/null; then
+            echo "$target_path" >> "$installed"
+        fi
         continue
     fi
 
@@ -52,11 +55,14 @@ for dotfile in $dotfiles; do
     # Check if inodes are equal.
     if [ $target_inode = $source_inode ]; then
         echo "'$target_path' already linked"
+        if ! grep -qw "$target_path" "$installed" 2> /dev/null; then
+            echo "$target_path" >> "$installed"
+        fi
         continue
     fi
 
-    # Check if dotfile is already installed.
-    if grep -qw "$(basename "$dotfile")" "$installed"; then
+    # Check if dotfile is supposed to be installed.
+    if grep -qw "$target_path" "$installed" 2> /dev/null; then
         echo "'$target_path' got unlinked, link it"
         ln -f "$source_path" "$target_path"
         continue
@@ -64,7 +70,9 @@ for dotfile in $dotfiles; do
 
     # Install dotfile.
     echo "'$target_path' exists, create backup and link it"
-    cp "$target_path" > "${source_path}.backup"
-    echo "$target_path" >> "$installed"
+    if ! diff -q "$target_path" "$source_path" > /dev/null; then
+        cp "$target_path" "${source_path}.backup"
+    fi
     ln -f "$source_path" "$target_path"
+    echo "$target_path" >> "$installed"
 done
