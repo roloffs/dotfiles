@@ -9,4 +9,4 @@
 #     sslCert = ~/pkifiles/cert-alm.crt
 #     sslKey = ~/pkifiles/cert-alm.key
 [core]
-    excludesFile = ~/.gitignore # .git/info/exclude
+    excludesFile = ~/.gitexclude # .git/info/exclude
