@@ -29,7 +29,7 @@ for dotfile in $dotfiles; do
   target_path=$(echo "$dotfile" | sed "s|~|$HOME|g")
 
   # Determine source path of dotfile.
-  source_path=$(find "profile" -maxdepth 1 -name "$(basename "$dotfile")")
+  source_path=$(find profile -maxdepth 1 -name "$(basename "$dotfile")")
 
   # Check if source dotfile exists.
   if [ ! -f "$source_path" ]; then
