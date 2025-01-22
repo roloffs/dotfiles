@@ -13,8 +13,6 @@
     // "workbench.editor.wrapTabs": true,
     // "workbench.editor.scrollToSwitchTabs": true,
     // "extensions.ignoreRecommendations": true,
-    "http.proxyStrictSSL": false,
-    // "http.proxy":"http://127.0.0.1:3128",
     // -------------------------------------------------------------------------
     // Explorer
     // -------------------------------------------------------------------------
@@ -29,16 +27,12 @@
     "files.exclude": {
         "**/.ccls-cache": true,
     },
-    // "files.autoSave": "afterDelay",
-    // "files.autoSaveDelay": 1000,
-    // "files.associations": {
-    //     "TARGETS": "json",
-    //     "RULES": "json",
-    //     "EXPRESSIONS": "json"
-    // },
-    // "files.watcherExclude": {
-    //     "**/.vscode/**": true
-    // },
+    "search.exclude": {
+        "**/.ccls-cache": true,
+    },
+    "files.watcherExclude": {
+        "**/.ccls-cache": true,
+    },
     // -------------------------------------------------------------------------
     // Editor
     // Ctrl+Shift+^ (german layout) or Ctrl+Shift+\ (english layout)
@@ -102,6 +96,8 @@
     "remote.SSH.path": "C:\\WINDOWS\\System32\\OpenSSH\\ssh.exe",
     "remote.SSH.useLocalServer": true,
     "remote.SSH.lockfilesInTmp": true,
+    "http.proxyStrictSSL": false,
+    // "http.proxy":"http://127.0.0.1:3128",
     // -------------------------------------------------------------------------
     // Git [eamodio.gitlens, mhutchie.git-graph]
     // -------------------------------------------------------------------------
@@ -136,9 +132,9 @@
     // Protobuf [zxh404.vscode-proto3]
     // -------------------------------------------------------------------------
     "[proto3]": {
-        "editor.formatOnSave": true,
+        // "editor.formatOnSave": true,
         "editor.formatOnType": false,
-        // "editor.defaultFormatter": "zxh404.vscode-proto3",
+        "editor.defaultFormatter": "zxh404.vscode-proto3",
         "rewrap.wrappingColumn": 80,
     },
     // -------------------------------------------------------------------------
@@ -186,16 +182,17 @@
     // -------------------------------------------------------------------------
     // Go [golang.go, bongnv.go-custom-format]
     // -------------------------------------------------------------------------
-    // "gopls": {
-    //     "importShortcut": "Definition",
-    //     "ui.semanticTokens": true,
-    // },
-    // "goCustomFormat.onSave": false,
-    // "goCustomFormat.fmtCmds": [
-    //     "golines",
-    //     "-m",
-    //     "80"
-    // ],
+    "go.goroot": "/home/roloff/sdk/go1.20.12",
+    "gopls": {
+        "importShortcut": "Definition",
+        "ui.semanticTokens": true,
+    },
+    "goCustomFormat.onSave": false,
+    "goCustomFormat.fmtCmds": [
+        "golines",
+        "-m",
+        "80"
+    ],
     "[go]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": false,
@@ -262,6 +259,8 @@
         "rewrap.wrappingColumn": 80,
     },
     "window.zoomLevel": 1,
+    "editor.accessibilitySupport": "off",
+    "window.confirmSaveUntitledWorkspace": false,
     "go.toolsManagement.autoUpdate": true,
     // -------------------------------------------------------------------------
     // Cmake
