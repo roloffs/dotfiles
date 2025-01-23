@@ -183,6 +183,7 @@
     // Go [golang.go, bongnv.go-custom-format]
     // -------------------------------------------------------------------------
     "go.goroot": "/home/roloff/sdk/go1.20.12",
+    "go.toolsManagement.autoUpdate": true,
     "gopls": {
         "importShortcut": "Definition",
         "ui.semanticTokens": true,
@@ -261,7 +262,6 @@
     "window.zoomLevel": 1,
     "editor.accessibilitySupport": "off",
     "window.confirmSaveUntitledWorkspace": false,
-    "go.toolsManagement.autoUpdate": true,
     // -------------------------------------------------------------------------
     // Cmake
     // -------------------------------------------------------------------------
