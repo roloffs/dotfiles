@@ -41,10 +41,14 @@
     "editor.renderWhitespace": "all",
     "editor.minimap.showSlider": "always",
     "editor.smoothScrolling": true,
+    "editor.tabSize": 4,
     "editor.detectIndentation": true,
     "editor.wordBasedSuggestionsMode": "currentDocument",
+    // "editor.wordBasedSuggestions": false,
     "editor.stickyScroll.enabled": true,
     "editor.inlayHints.enabled": "offUnlessPressed",
+    // "editor.suggest.insertMode": "replace",
+    // "editor.semanticHighlighting.enabled": true,
     // "editor.hover.enabled": false,
     "editor.codeLens": false,
     "editor.rulers": [
@@ -252,11 +256,6 @@
         "editor.formatOnSave": true,
         "editor.formatOnType": false,
         "editor.defaultFormatter": "xaver.clang-format",
-        "editor.detectIndentation": false,
-        "editor.tabSize": 4,
-        // "editor.wordBasedSuggestions": false,
-        // "editor.suggest.insertMode": "replace",
-        // "editor.semanticHighlighting.enabled": true,
         "rewrap.wrappingColumn": 80,
     },
     "window.zoomLevel": 1,
@@ -266,4 +265,6 @@
     // Cmake
     // -------------------------------------------------------------------------
     // "cmake.configureOnOpen": false
+    // "cmake.options.statusBarVisibility": "compact",
+    // "cmake.showOptionsMovedNotification": false,
 }
