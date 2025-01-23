@@ -19,7 +19,6 @@ dotfiles="\
   ~/.gitexclude \
   ~/.gdbinit \
   ~/.config/user-dirs.dirs \
-  ~/.config/Code/User/settings.json \
 "
 
 installed=.installed
