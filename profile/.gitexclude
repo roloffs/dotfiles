@@ -1,5 +1,7 @@
 .idea
 .vscode
 .ccls-cache
+.cache
 build
 compile_commands.json
+compile_flags.txt
