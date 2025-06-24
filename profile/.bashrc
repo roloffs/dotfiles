@@ -70,7 +70,7 @@ __exit_code() {
     if [ $ret != 0 ]; then
         local nam=$(kill -l $ret 2> /dev/null)
         if [ -n "$nam" ]; then
-            printf " SIG%s " $nam
+            printf " %s (SIG%s) " $ret $nam
         else
             printf " %s " $ret
         fi
