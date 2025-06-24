@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Linux-Clang-x64",
+            "includePath": [
+                "${workspaceFolder}/OSS",
+                "${env:HOME}/.devcloud-external/include"
+            ],
+            "defines": [],
+            "compilerPath": "${env:HOME}/.local/bin/clang++",
+            "cStandard": "c11",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "linux-clang-x64"
+        }
+    ],
+    "version": 4
+}
