@@ -29,7 +29,7 @@ for dotfile in $dotfiles; do
 
   # Find the dotfile in this folder.
   base_path=$(realpath --relative-base="$HOME" "$target_path")
-  source_path=$(find profile -path "*$base_path")
+  source_path=$(find home -path "*$base_path")
 
   # Check if source dotfile exists.
   if [ ! -f "$source_path" ]; then
