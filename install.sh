@@ -19,6 +19,7 @@ dotfiles="\
   ~/.gitexclude \
   ~/.gdbinit \
   ~/.config/user-dirs.dirs \
+  ~/.config/clangd/config.yaml \
 "
 
 installed=.installed
