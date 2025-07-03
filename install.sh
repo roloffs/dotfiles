@@ -29,7 +29,7 @@ for dotfile in $dotfiles; do
   target_path=$(eval echo "$dotfile")
 
   # Find the dotfile in this folder.
-  base_path=$(realpath --relative-base="$HOME" "$target_path")
+  base_path=$(realpath -m --relative-base="$HOME" "$target_path")
   source_path=$(find home -path "*$base_path")
 
   # Check if source dotfile exists.
