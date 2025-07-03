@@ -70,9 +70,11 @@ for dotfile in $dotfiles; do
   fi
 
   # Install dotfile.
-  echo "'$target_path' exists, create backup and link it"
   if ! diff -q "$target_path" "$source_path" > /dev/null; then
+    echo "'$target_path' exists with differences, create backup, and link it"
     cp "$target_path" "${source_path}.backup"
+  else
+    echo "'$target_path' exists without differences, link it"
   fi
   ln -f "$source_path" "$target_path"
   echo "$target_path" >> "$installed"
