@@ -25,10 +25,11 @@ installed=.installed
 
 for dotfile in $dotfiles; do
   # Replace ~ by $HOME in the target path of the dotfile.
-  target_path=$(echo "$dotfile" | sed "s|~|$HOME|g")
+  target_path=$(eval echo "$dotfile")
 
   # Find the dotfile in this folder.
-  source_path=$(find profile -maxdepth 1 -name "$(basename "$dotfile")")
+  base_path=$(realpath --relative-base="$HOME" "$target_path")
+  source_path=$(find profile -path "*$base_path")
 
   # Check if source dotfile exists.
   if [ ! -f "$source_path" ]; then
