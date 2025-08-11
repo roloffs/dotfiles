@@ -8,5 +8,11 @@
 #     sslVerify = false
 #     sslCert = ~/pkifiles/cert-alm.crt
 #     sslKey = ~/pkifiles/cert-alm.key
+[http]
+    proxy = 127.0.0.1:3128
+    sslVerify = false
+[https]
+    proxy = 127.0.0.1:3128
+    sslVerify = false
 [core]
     excludesFile = ~/.gitexclude # .git/info/exclude
