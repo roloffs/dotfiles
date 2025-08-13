@@ -1,5 +1,20 @@
+InlayHints:
+  Enabled: Yes
 Diagnostics:
   UnusedIncludes: Strict # None
   MissingIncludes: Strict # None
-InlayHints:
-  Enabled: Yes
+  ClangTidy:
+    FastCheckFilter: Strict # Loose, None
+    Add: [
+        cert-*,
+        hicpp-*,
+        bugprone-*,
+        clang-analyzer-*,
+        clang-diagnostic-*,
+        cppcoreguidelines-*,
+        modernize-*,
+        performance-*,
+        portability-*,
+        readability-*,
+        concurrency-*,
+      ] # https://clang.llvm.org/extra/clang-tidy/
