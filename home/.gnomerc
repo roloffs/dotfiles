@@ -1,0 +1,2 @@
+# enable proper lexicographic file ordering in graphical tools
+export LC_COLLATE=POSIX

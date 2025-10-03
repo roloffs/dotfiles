@@ -18,6 +18,7 @@ dotfiles="\
   ~/.gitconfig \
   ~/.gitexclude \
   ~/.gdbinit \
+  ~/.gnomerc \
   ~/.config/user-dirs.dirs \
   ~/.config/clangd/config.yaml \
 "
