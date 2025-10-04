@@ -44,7 +44,7 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m' # start underline
 export LESS_TERMCAP_ue=$'\e[0m'
 
-# Proxy server
+# proxy server
 #export http_proxy="http://<proxy.com:port>"
 #export https_proxy="http://<proxy.com:port>"
 #export ftp_proxy="http://<proxy.com:port>"
@@ -52,8 +52,10 @@ export LESS_TERMCAP_ue=$'\e[0m'
 #export HTTPS_PROXY=$https_proxy
 #export FTP_PROXY=$ftp_proxy
 
-PATH="$HOME/go/bin:$PATH"
-PATH="$HOME/.local/go/bin:$PATH"
-PATH="$HOME/.local/flutter/bin:$PATH"
-PATH="$HOME/.pub-cache/bin:$PATH"
-PATH="$HOME/.pyenv/bin:$PATH"
+# local bin folders
+#PATH="$HOME/go/bin:$PATH"
+#PATH="$HOME/.local/go/bin:$PATH"
+#PATH="$HOME/.local/flutter/bin:$PATH"
+#PATH="$HOME/.pub-cache/bin:$PATH"
+#PATH="$HOME/.pyenv/bin:$PATH"
+#PATH="/usr/local/cuda-12.8/bin:${PATH}"
