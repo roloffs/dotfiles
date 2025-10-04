@@ -1,0 +1,78 @@
+# ------------------------------------------------------------------------------
+# SCREEN SETTINGS
+# ------------------------------------------------------------------------------
+# keine Startmeldung
+startup_message off
+# kein Blinken
+vbell off
+vbell_msg off
+
+# 4096 anstatt 100 Zeilenpuffer
+defscrollback 4096
+# tell screen that the term can scroll (Scrollen mit Shift+PgUpDown)
+#termcapinfo xterm* ti@:te@
+# refresh lastline, when hardstatus
+#termcapinfo xterm* cs@
+
+# Shelltitel (damit Programmnamen als Windowtitel gesetzt werden)
+# dazu muss das in der Shellprompt (PS1) stehen: '\[\033k\033\\\]' und sie muss so enden: '\$ '
+# Bsp: PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033k\033\\\]\$ '
+#shelltitle "$ |bash" # (fuer normale User)
+#shelltitle "# |bash" # (fuer root)
+
+# Statuszeile setzen
+#hardstatus alwayslastline "%{= kb}[ %{B}%l %{b}][ %=%{w}%-w%{b}(%{W}%n %t%{b})%{w}%+w%= %{b}][ %{W}%D, %d. %M %Y | %c %{b}]"
+#hardstatus alwayslastline "%{= kb}[ %{B}%H %{b}][ %=%{w}%-w%{b}(%{W}%n %t%{b})%{w}%+w%= %{b}][ %{W}%D, %d. %M %Y | %c %{b}]"
+#hardstatus alwayslastline "%{= kb}[ %=%{w}%-w%{b}(%{W}%n %t%{b})%{w}%+w%= %{b}][ %{W}%D, %d. %M %Y | %c %{b}]"
+hardstatus alwayslastline "%{= .b} %=%{w}%-w%{b}(%{W}%n %t%{b})%{w}%+w%="
+#caption always "%{= kW} %-w%{b}(%{W}%n %t%{b})%{W}%+w %=%c"
+#caption always "%{= kb} %{b}%=%{w}%-w%{b}(%{W}%n %t%{b})%{w}%+w%=
+#caption always "%=%-w(%n %t)%+w%="
+
+#caption always "%{= kb}[ %{B}%l %{b}][ %=%{w}%-w%{b}(%{W}%n %t%{b})%{w}%+w%= %{b}][ %{W}%D, %d. %M %Y | %c %{b}]"
+
+# Programmausgabe hinzufuegen
+#backtick 1(id) 1(s) 1(s) whoami
+#hardstatus alwayslastline "[%1`]"
+
+# ------------------------------------------------------------------------------
+# SCREEN KEYBINDINGS
+# ------------------------------------------------------------------------------
+
+# bindkey <key> <command>
+
+# <key> = 
+#   einfach $ cat > /dev/null eingeben und dann Tastenkombinationen dr�cken
+#   ^X            Strg+X
+#   ^[x           Alt+X
+
+# <command> =
+#   screen        neue Shell
+#   next          n�chste Shell
+#   prev          vorige Shell
+#
+#   split         horizontal teilen
+#   split -v      vertikal teilen
+#   focus down    n�chste Region
+#   focus up      vorige Region
+#   resize +1     Region um 1 vergr��ern
+#   resize -1     Region um 1 verkleinern
+#   remove        Region schlie�en
+#
+#   eval "kill"   Shell beenden
+#   eval "quit"   alle Shells beenden
+#   title         Shelltitel �ndern
+#   copy          in Scrollmodus wechseln
+#   only          alle Regionen schlie�en
+
+#bindkey ^[t screen
+#bindkey ^[f next
+#bindkey ^[b prev
+
+#bindkey ^[x split
+#bindkey ^[y split -v
+#bindkey ^[n focus down
+#bindkey ^[p focus up
+#bindkey ^[+ resize +1
+#bindkey ^[- resize -1
+#bindkey ^[r remove
