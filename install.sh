@@ -2,7 +2,7 @@
 set -eu
 
 # Install essential tools.
-#sudo apt-get install -y vim git tig tree htop colordiff # meld
+#sudo apt-get install -y vim git tig tree htop colordiff stow # meld
 
 # Download git-prompt.sh.
 if [ ! -f ~/.git-prompt.sh ]; then
