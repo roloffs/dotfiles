@@ -13,6 +13,7 @@ fi
 dotfiles="\
   ~/.bashrc \
   ~/.profile \
+  ~/.lesskey \
   ~/.inputrc \
   ~/.vimrc \
   ~/.gitconfig \

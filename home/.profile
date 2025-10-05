@@ -34,15 +34,8 @@ export PAGER=less
 # mouse scrolling in less
 #export LESS='-R'
 
-# colorful man pages
-export LESS_TERMCAP_mb=$'\e[1;32m' # start bold
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[1;34m' # start standout
-#export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m' # start underline
-export LESS_TERMCAP_ue=$'\e[0m'
+# colors in less (for gnome-terminal)
+export GROFF_NO_SGR=1
 
 # proxy server
 #export http_proxy="http://<proxy.com:port>"
