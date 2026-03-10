@@ -99,7 +99,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -v --color=auto --group-directories-first'
+    alias ls='ls -v --classify=auto --color=auto --group-directories-first'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -130,9 +130,9 @@ if [ -x /usr/bin/python3 ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -lF'
-alias la='ls -lAF'
-alias l='ls -CF'
+alias ll='ls -l'
+alias la='ls -lA'
+alias l='ls -C'
 
 # some cd aliases
 alias +='pushd .'
