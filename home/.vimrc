@@ -22,10 +22,10 @@ set ignorecase " ignore case type for searching (append \C to the search pattern
 set smartcase " be case sensitive if word contains an upper case letter (works only, if ignorecase is set)
 
 set expandtab " when <tab> key is hit, spaces are inserted instead of <tab> symbols (:retab replaces existing <tab> symbols with spaces, ctrl+v <tab> interts a <tab> symbol in insert mode)
-set softtabstop=4 " number of columns, hitting the <tab> key counts for (independent of spaces or <tab> symbols)
-set tabstop=4 " number of columns, a <tab> symbol counts for
+set softtabstop=2 " number of columns, hitting the <tab> key counts for (independent of spaces or <tab> symbols)
+set tabstop=2 " number of columns, a <tab> symbol counts for
 set smartindent " same indentation like line before + considers curly brackets level (makes autoindent and cindent obsolete)
-set shiftwidth=4 " number of columns, indentation counts for (>>, <<)
+set shiftwidth=2 " number of columns, indentation counts for (>>, <<)
 "set smarttab " ??
 
 set nofoldenable " disables text folding
