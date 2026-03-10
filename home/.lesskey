@@ -1,16 +1,16 @@
 #env
-# start bold
+# start bold (bold, green)
 LESS_TERMCAP_mb=\e[1;32m
-# start blink
+# start blink (bold, green)
 LESS_TERMCAP_md=\e[1;32m
 # reset bold/blink
 LESS_TERMCAP_me=\e[0m
-# start underline
+# start underline (bold, underline, red)
 LESS_TERMCAP_us=\e[1;4;31m
 # reset underline
 LESS_TERMCAP_ue=\e[0m
-# start standout
+# start standout (bold, blue)
+#LESS_TERMCAP_so=\e[1;33m
 LESS_TERMCAP_so=\e[1;34m
-#LESS_TERMCAP_so=\e[01;33m
 # reset standout
 LESS_TERMCAP_se=\e[0m

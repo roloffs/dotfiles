@@ -31,10 +31,12 @@ export EDITOR=vim
 export VISUAL=vim
 export PAGER=less
 
-# mouse scrolling in less
-#export LESS='-R'
+# less prints ANSI color escape sequences (SGR) in raw form to the terminal,
+# instead of displaying them using the caret notation (-R), less exits if the
+# output fits on the screen (-F)
+export LESS='-RF'
 
-# colors in less (for gnome-terminal)
+# grotty does not emit SGR and OSC escape sequences, but a legacy output format
 export GROFF_NO_SGR=1
 
 # proxy server
