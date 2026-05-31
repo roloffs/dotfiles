@@ -29,7 +29,7 @@ set shiftwidth=2 " number of columns, indentation counts for (>>, <<)
 "set smarttab " ??
 
 set nofoldenable " disables text folding
-set clipboard=exclude:.* " disables trying to connect to an X server to enable using the clipboard
+"set clipboard=exclude:.* " disables trying to connect to an X server to enable using the clipboard
 set noswapfile
 set nobackup
 set nowritebackup
